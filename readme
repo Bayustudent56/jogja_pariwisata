@@ -1,0 +1,82 @@
+# Jogja Wisata Laravel
+
+Web pariwisata untuk menjelajahi keindahan Yogyakarta, dibangun dengan Laravel 10.
+
+## Fitur
+
+-   Informasi Destinasi
+-   Informasi Kuliner
+-   Berita Terkini Pariwisata Jogja
+-   Sistem Otentikasi Pengguna
+
+## Persyaratan Sistem
+
+-   PHP >= 8.1
+-   Composer
+-   Node.js & NPM / Yarn
+-   MySQL / PostgreSQL (atau database lain yang didukung Laravel)
+
+## Instalasi
+
+1.  **Clone repositori:**
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/jogja-wisata-laravel.git](https://github.com/YOUR_USERNAME/jogja-wisata-laravel.git)
+    cd jogja-wisata-laravel
+    ```
+
+2.  **Instal dependensi Composer:**
+    ```bash
+    composer install
+    ```
+
+3.  **Salin file .env:**
+    ```bash
+    cp .env.example .env
+    ```
+
+4.  **Buat kunci aplikasi:**
+    ```bash
+    php artisan key:generate
+    ```
+
+5.  **Konfigurasi Database:**
+    Buka file `.env` dan atur kredensial database Anda:
+    ```dotenv
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=your_database_name
+    DB_USERNAME=your_db_username
+    DB_PASSWORD=your_db_password
+    ```
+
+6.  **Jalankan migrasi database:**
+    ```bash
+    php artisan migrate
+    ```
+    Opsional: Jalankan seeder untuk data awal:
+    ```bash
+    php artisan db:seed
+    ```
+
+7.  **Instal dependensi Node.js & kompilasi aset frontend:**
+    ```bash
+    npm install
+    npm run dev # Untuk pengembangan
+    # atau
+    npm run build # Untuk produksi
+    ```
+
+8.  **Jalankan server pengembangan Laravel:**
+    ```bash
+    php artisan serve
+    ```
+    Aplikasi akan tersedia di `http://127.0.0.1:8000`.
+
+## Kontribusi
+
+Silakan fork repositori ini dan kirimkan Pull Request jika Anda memiliki saran atau perbaikan.
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah [Nama Lisensi Anda, misal MIT License].
