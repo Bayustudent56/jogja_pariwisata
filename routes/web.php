@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('beranda');
 });
+
+Route::get('/berita/{kategori?}', function ($kategori = null) {
+    return view('berita', ['kategori' => $kategori]);
+});
+
+Route::get('/destinasi/{lokasi?}', function ($lokasi = null) {
+    return view('destinasi', ['lokasi' => $lokasi]);
+});
+
+Route::get('/kuliner/{lokasi?}', function ($lokasi = null) {
+    return view('kuliner', ['lokasi' => $lokasi]);
+});
+
+
+require __DIR__.'/auth.php';
