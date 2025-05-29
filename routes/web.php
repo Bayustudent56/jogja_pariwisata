@@ -14,20 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// routes/web.php
+
 Route::get('/', function () {
     return view('beranda');
 });
 
-Route::get('/berita/{kategori?}', function ($kategori = null) {
-    return view('berita', ['kategori' => $kategori]);
+Route::get('/berita/terkini', function () {
+    return view('berita.terkini');
 });
 
-Route::get('/destinasi/{lokasi?}', function ($lokasi = null) {
-    return view('destinasi', ['lokasi' => $lokasi]);
+Route::get('/berita/destinasi', function () {
+    return view('berita.destinasi');
 });
 
-Route::get('/kuliner/{lokasi?}', function ($lokasi = null) {
-    return view('kuliner', ['lokasi' => $lokasi]);
+Route::get('/berita/kuliner', function () {
+    return view('berita.kuliner');
+});
+
+Route::get('/destinasi', function () {
+    return view('destinasi');
+});
+
+Route::get('/kuliner', function () {
+    return view('kuliner');
 });
 
 

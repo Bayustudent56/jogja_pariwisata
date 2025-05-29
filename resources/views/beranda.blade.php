@@ -1,49 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5">
-        <h1>Selamat datang di Web Pariwisata Jogja</h1>
-        <img src="{{ asset('images/jogja-malioboro.jpg') }}" class="img-fluid rounded" alt="Malioboro">
-        <p>Temukan destinasi wisata terbaik, kuliner yang menggugah selera, dan berita terkini di Jogja!</p>
+    <!-- Hero Section -->
+    <div class="relative mb-8">
+        <!-- Menggunakan gambar lokal yang ada di folder public/images -->
+        <img src="{{ asset('images/malioboro1.jpg') }}" alt="Malioboro" class="w-full h-64 object-cover rounded-lg shadow-md">
+    </div>
 
-        <!-- Highlights Grid -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-            <div class="col">
-                <div class="card">
-                    <img src="{{ asset('images/vredeburg.jpg') }}" class="card-img-top" alt="Vredeburg">
-                    <div class="card-body">
-                        <h5 class="card-title">Highlight 1</h5>
-                        <p class="card-text">Deskripsi</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="{{ asset('images/malioboro.jpg') }}" class="card-img-top" alt="Malioboro">
-                    <div class="card-body">
-                        <h5 class="card-title">Highlight 2</h5>
-                        <p class="card-text">Deskripsi</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="{{ asset('images/keraton.jpg') }}" class="card-img-top" alt="Keraton">
-                    <div class="card-body">
-                        <h5 class="card-title">Highlight 3</h5>
-                        <p class="card-text">Deskripsi</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="{{ asset('images/tugu.jpg') }}" class="card-img-top" alt="Tugu">
-                    <div class="card-body">
-                        <h5 class="card-title">Highlight 4</h5>
-                        <p class="card-text">Deskripsi</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Highlights Section -->
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="font-semibold text-xl text-gray-800 mb-3">Highlight 1</h2>
+            <p class="text-gray-600">Deskripsi</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="font-semibold text-xl text-gray-800 mb-3">Highlight 2</h2>
+            <p class="text-gray-600">Deskripsi</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="font-semibold text-xl text-gray-800 mb-3">Highlight 3</h2>
+            <p class="text-gray-600">Deskripsi</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="font-semibold text-xl text-gray-800 mb-3">Highlight 4</h2>
+            <p class="text-gray-600">Deskripsi</p>
         </div>
     </div>
 @endsection
