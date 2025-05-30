@@ -17,7 +17,7 @@
     <!-- Sidebar (visible on all screen sizes, toggled with hamburger) -->
     <div x-data="{ open: false }" class="flex">
         <!-- Sidebar content -->
-        <div x-show="open" @click.away="open = false" class="fixed left-0 top-0 w-64 bg-white shadow-md h-full z-50 lg:block">
+        <div x-show="open" @click.away="open = false" class="fixed left-0 top-0 w-64 bg-white shadow-md h-full z-50 lg:block transition-all duration-300">
             <div class="p-4">
                 <a href="#" class="text-lg text-gray-800 py-4 block">→ Login</a>
                 <a href="#" class="text-lg text-gray-800 py-4 block">⚙ Setting</a>
@@ -25,8 +25,7 @@
         </div>
 
         <!-- Main content -->
-        <div class="flex-1 p-6">
-
+        <div :class="{'ml-64': open}" class="flex-1 p-6 transition-all duration-300">
             <!-- Navbar (sticky with hamburger and links visible on all screen sizes) -->
             <div class="sticky top-0 z-50 bg-white shadow-md mb-6">
                 <div class="flex justify-between items-center p-4">
