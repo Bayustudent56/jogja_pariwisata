@@ -44,7 +44,33 @@
                         <a href="/" class="text-lg text-gray-700 hover:text-blue-600">Beranda</a>
                         <a href="/berita" class="text-lg text-gray-700 hover:text-blue-600">Berita</a>
                         <a href="/destinasi" class="text-lg text-gray-700 hover:text-blue-600">Destinasi</a>
-                        <a href="/kuliner" class="text-lg text-gray-700 hover:text-blue-600">Kuliner</a>
+                        <!-- Dropdown Kuliner -->
+                        <div x-data="{ openKuliner: false }" class="relative">
+                            <button @click="openKuliner = !openKuliner"
+                                class="text-lg text-gray-700 hover:text-blue-600 flex items-center gap-1"
+                            >
+                                Kuliner
+                                <svg class="w-4 h-4 transform" :class="{ 'rotate-180': openKuliner }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+    
+                            <div x-show="openKuliner" @click.outside="openKuliner = false"
+                                x-transition
+                                class="absolute z-50 mt-2 w-40 bg-white shadow-lg rounded-lg py-2"
+                            >
+                                <a href="{{ url('/kuliner/berat') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                >
+                                    Berat
+                                </a>
+                                <a href="{{ url('/kuliner/ringan') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                >
+                                    Ringan
+                                </a>
+                            </div>
+                        </div>
 
                         <!-- Search -->
                         <div class="relative">
