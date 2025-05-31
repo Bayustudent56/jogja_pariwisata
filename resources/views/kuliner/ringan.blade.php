@@ -50,7 +50,7 @@
             <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 p-1 text-white w-full">
                 <span class="text-xs bg-gray-800 px-2 py-1 rounded">RINGAN</span>
                 <h2 class="text-lg font-bold mt-2">Bukan Bakpia Biasa! Kurnia Sari Rahasia Warga Lokal yang Lembut dan Kaya Rasa</h2>
-                <p class="text-sm mt-1">15 April 2025</p>
+                <p class="text-sm mt-1">15 April 2024</p>
             </div>
         </div>
         <div class="relative">
@@ -58,7 +58,7 @@
             <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 p-1 text-white w-full">
                 <span class="text-xs bg-gray-800 px-2 py-1 rounded">RINGAN</span>
                 <h2 class="text-lg font-bold mt-2">Kalau Datang Pagi, Bisa Sarapan Legenda Kuliner Jogja yang Tampil di Netflix</h2>
-                <p class="text-sm mt-1">17 Januari 2025</p>
+                <p class="text-sm mt-1">17 Januari 2024</p>
             </div>
         </div>
     </div>
