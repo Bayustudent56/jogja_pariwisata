@@ -43,7 +43,33 @@
                     <div class="flex space-x-8 items-center">
                         <a href="/" class="text-lg text-gray-700 hover:text-blue-600">Beranda</a>
                         <a href="/berita" class="text-lg text-gray-700 hover:text-blue-600">Berita</a>
-                        <a href="/destinasi" class="text-lg text-gray-700 hover:text-blue-600">Destinasi</a>
+                         <!-- Dropdown Destinasi -->
+                        <div x-data="{ openDestinasi: false }" class="relative">
+                            <button @click="openDestinasi = !openDestinasi"
+                                class="text-lg text-gray-700 hover:text-blue-600 flex items-center gap-1"
+                            >
+                                Destinasi
+                                <svg class="w-4 h-4 transform" :class="{ 'rotate-180': openDestinasi }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            <div x-show="openDestinasi" @click.outside="openDestinasi = false"
+                                x-transition
+                                class="absolute z-50 mt-2 w-48 bg-white shadow-lg rounded-lg py-2"
+                            >
+                                <a href="{{ url('/destinasi/yogyakarta') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Yogyakarta</a>
+                                <a href="{{ url('/destinasi/bantul') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Bantul</a>
+                                <a href="{{ url('/destinasi/gunungkidul') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gunung Kidul</a>
+                                <a href="{{ url('/destinasi/sleman') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sleman</a>
+                                <a href="{{ url('/destinasi/kulonprogo') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Kulonprogo</a>
+                            </div>
+                        </div>
                         <!-- Dropdown Kuliner -->
                         <div x-data="{ openKuliner: false }" class="relative">
                             <button @click="openKuliner = !openKuliner"
