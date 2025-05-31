@@ -63,11 +63,11 @@
                                 <a href="{{ url('/destinasi/bantul') }}"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Bantul</a>
                                 <a href="{{ url('/destinasi/gunungkidul') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gunung Kidul</a>
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gunungkidul</a>
                                 <a href="{{ url('/destinasi/sleman') }}"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sleman</a>
                                 <a href="{{ url('/destinasi/kulonprogo') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Kulonprogo</a>
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Kulon Progo</a>
                             </div>
                         </div>
                         <!-- Dropdown Kuliner -->
