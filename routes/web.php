@@ -40,5 +40,12 @@ Route::get('/kuliner', function () {
     return view('kuliner');
 });
 
+Route::get('/kuliner/berat', function () {
+    return view('kuliner.berat');
+})->name('kuliner.berat');
+
+Route::get('/kuliner/ringan', function () {
+    return view('kuliner.ringan');
+})->name('kuliner.ringan');
 
 require __DIR__.'/auth.php';
