@@ -3,7 +3,7 @@
 @section('content')
 <section class="bg-gradient-to-b from-gray-700 to-black text-white py-16">
     <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-sm mb-2 text-gray-300">Home > Destinasi > KULON PROGO</p>
+        <p class="text-sm mb-2 text-gray-300">Home > Destinasi > Kulon Progo</p>
         <h1 class="text-4xl font-bold">DESTINASI WISATA KULON PROGO</h1>
         <p class="mt-4 text-lg italic text-gray-200">
         Keindahan alam yang masih alami di sisi barat Jogja. Sungai, pegunungan, dan kearifan lokal berpadu menciptakan pengalaman wisata yang damai dan mengesankan.
