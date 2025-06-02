@@ -40,5 +40,32 @@ Route::get('/kuliner', function () {
     return view('kuliner');
 });
 
+Route::get('/kuliner/berat', function () {
+    return view('kuliner.berat');
+})->name('kuliner.berat');
+
+Route::get('/kuliner/ringan', function () {
+    return view('kuliner.ringan');
+})->name('kuliner.ringan');
+
+Route::get('/destinasi/bantul', function () {
+    return view('destinasi.bantul');
+});
+
+Route::get('/destinasi/gunungkidul', function () {
+    return view('destinasi.gunungkidul');
+});
+
+Route::get('/destinasi/kulonprogo', function () {
+    return view('destinasi.kulonprogo');
+});
+
+Route::get('/destinasi/sleman', function () {
+    return view('destinasi.sleman');
+});
+
+Route::get('/destinasi/yogyakarta', function () {
+    return view('destinasi.yogyakarta');
+});
 
 require __DIR__.'/auth.php';
