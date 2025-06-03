@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 // routes/web.php
 
-Route::get('/', function () {
+Route::get('/beranda', function () {
     return view('beranda');
+});
+Route::get('/berat', function () {
+    return view('berat');
 });
 
 Route::get('/berita/terkini', function () {
