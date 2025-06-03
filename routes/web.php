@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('beranda');
 });
+Route::get('/galeri', function () {
+    return view('galeri');
+});
 
 Route::get('/berita/terkini', function () {
     return view('berita.terkini');
