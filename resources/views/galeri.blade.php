@@ -4,9 +4,9 @@
 
 @section('content')
     {{-- Page Banner --}}
-    <div class="relative bg-cover bg-center h-72 md:h-96 lozad"
-         data-background-image="https://wonderfulimage.s3-id-jkt-1.kilatstorage.id/1655896926-apresiasi-kreasi-indonesia--aki--2022--cirebon-77-jpg-medium.jpg"
-         style="background-image: url('https://wonderfulimage.s3-id-jkt-1.kilatstorage.id/1655896926-apresiasi-kreasi-indonesia--aki--2022--cirebon-77-jpg-medium.jpg');">
+    <div class="relative bg-cover bg-center h-72 md:h-96 lozad page-banner" {{-- Ditambahkan kelas 'page-banner' agar script Lozad bekerja --}}
+         data-background-image="{{ asset('images/ratuboko.jpg') }}"
+         style="background-image: url('{{ asset('images/ratuboko.jpg') }}');">
         {{-- Overlay tipis untuk kontras teks --}}
         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         <div class="container mx-auto px-4 h-full flex items-center justify-center text-center">
@@ -15,8 +15,6 @@
             </h1>
         </div>
     </div>
-
-
 
     {{-- Breadcrumbs and Gallery --}}
     <div class="container mx-auto px-4 mt-10 mb-6">
@@ -34,12 +32,13 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8">
             @php
                 $galleryItems = [
-                    ['title' => 'Art and Culture', 'image' => 'https://wonderfulimage.s3-id-jkt-1.kilatstorage.id/1673836431-photo-2022-12-24-10-05-37-jpg-thumb.jpg', 'link' => '#art-culture'],
-                    ['title' => 'Culinary', 'image' => 'https://wonderfulimage.s3-id-jkt-1.kilatstorage.id/1620042335-kampung_sanjai-47-thumb.jpg', 'link' => '#culinary'],
-                    ['title' => 'Landscape', 'image' => 'https://wonderfulimage.s3-id-jkt-1.kilatstorage.id/1638868870-merapi--kaliurang--yogyakarta--a-jpg-thumb.jpg', 'link' => '#landscape'],
-                    ['title' => 'Sports & Adventure', 'image' => 'https://wonderfulimage.s3-id-jkt-1.kilatstorage.id/1658722655-764f5bab-7664-4f60-9986-a4c6f802b9f5-59931-00000b626936de66-jpg-thumb.jpg', 'link' => '#sports-adventure'],
-                    ['title' => 'Health & Wellness', 'image' => 'https://wonderfulimage.s3-id-jkt-1.kilatstorage.id/1637073893-oxygen_concentrator_trip_com-15-thumb.jpg', 'link' => '#health-wellness'],
-                    ['title' => 'Creative Economy', 'image' => 'https://wonderfulimage.s3-id-jkt-1.kilatstorage.id/1684480618-audiensi-dengan-asean-youth-26-jpg-thumb.jpg', 'link' => '#creative-economy'],
+                    ['title' => 'Alam', 'image' => asset('images/merapi.jpg'), 'link' => '#art-culture'],
+                    ['title' => 'Budaya & Sejarah', 'image' => asset('images/budaya.jpg'), 'link' => '#culinary'],
+                    ['title' => 'Edukasi', 'image' => asset('images/sonobudoyo2.jpg'), 'link' => '#landscape'],
+                    // PERUBAHAN PADA BARIS DI BAWAH INI
+                    ['title' => 'Kreatif', 'image' => asset('images/artpaper.jpg'), 'link' => '#sports-adventure'],
+                    ['title' => 'Kuliner Tradisional', 'image' => asset('images/gudeg.jpg'), 'link' => '#health-wellness'],
+                    ['title' => 'Kuliner Kekinian', 'image' => asset('images/tempogelato.jpg'), 'link' => '#creative-economy'],
                 ];
             @endphp
 
@@ -53,7 +52,7 @@
                     <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                     {{-- Title --}}
                     <div class="absolute bottom-0 left-0 p-5">
-                        <h5 class="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-yellow-300">
+                        <h5 class="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-gray-300">
                             {{ $item['title'] }}
                         </h5>
                     </div>
@@ -73,12 +72,12 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Inisialisasi Lozad
+   
         const observer = lozad('.lozad', {
             loaded: function(el) {
                 el.classList.add('loaded');
-                // Untuk banner, jika menggunakan data-background-image, pastikan gambar benar-benar diterapkan
-                if(el.classList.contains('page-banner')) {
+                
+                if(el.classList.contains('page-banner')) { 
                     const bgImage = el.getAttribute('data-background-image');
                     if (bgImage) {
                         el.style.backgroundImage = `url('${bgImage}')`;
@@ -88,8 +87,7 @@
         });
         observer.observe();
 
-        // Tambahan: Jika Anda tidak menggunakan Alpine.js untuk dropdown Location,
-        // Anda perlu menulis JavaScript kustom di sini untuk menangani show/hide panel dropdownnya.
+        
     });
 </script>
 @endpush

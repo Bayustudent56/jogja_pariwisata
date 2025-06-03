@@ -109,7 +109,7 @@
     </div>
 
 
-    {{-- BAGIAN 3: GALERI (Layout Kartu dengan Tinggi Tetap) --}}
+    {{-- BAGIAN 3: GALERI (Layout Kartu DENGAN EFEK HOVER TEKS ABU-ABU) --}}
     <div class="bg-white py-16 px-4 md:px-8 lg:px-16">
         {{-- Header Galeri --}}
         <div class="flex justify-between items-center mb-8">
@@ -120,74 +120,36 @@
             <a href="#" class="text-blue-600 font-semibold hover:underline whitespace-nowrap">Lihat Semua &rarr;</a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        @php
+            $galleryItemsJogja = [
+                ['title' => 'Gudeg Khas Yogyakarta', 'image_path' => 'images/gudeg.jpg', 'alt' => 'Gudeg, makanan khas Yogyakarta', 'link' => '#gudeg'],
+                ['title' => 'Sunset di Ratu Boko', 'image_path' => 'images/ratuboko.jpg', 'alt' => 'Candi Ratu Boko saat matahari terbenam', 'link' => '#ratuboko'],
+                ['title' => 'Megahnya Gunung Merapi', 'image_path' => 'images/merapi.jpg', 'alt' => 'Pemandangan Gunung Merapi dari kejauhan', 'link' => '#merapi'],
+                ['title' => 'Tenangnya Waduk Sermo', 'image_path' => 'images/sermo.jpeg', 'alt' => 'Waduk Sermo di Kulon Progo', 'link' => '#sermo'],
+                ['title' => 'Sejuknya Hutan Pinus', 'image_path' => 'images/pinusmangun.jpg', 'alt' => 'Hutan Pinus Mangunan', 'link' => '#pinus'],
+                ['title' => 'Sejarah di Vredeburg', 'image_path' => 'images/vredeburg.jpg', 'alt' => 'Museum Benteng Vredeburg di Yogyakarta', 'link' => '#vredeburg'],
+            ];
+        @endphp
 
-            {{-- Card 1 --}}
-            <a href="#" class="block rounded-xl shadow-md overflow-hidden bg-white transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.98]">
-                <div class="h-48">
-                    <img src="{{ asset('images/gudeg.jpg') }}" alt="Gudeg, makanan khas Yogyakarta" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-semibold text-gray-800 mb-1">Gudeg Khas Yogyakarta</h3>
-                    <p class="text-gray-500 text-sm">3 Juni 2025</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            @foreach($galleryItemsJogja as $item)
+            <a href="{{ $item['link'] }}" class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 ease-in-out">
+                <div class="relative">
+                    {{-- Image --}}
+                    <img src="{{ asset($item['image_path']) }}" alt="{{ $item['alt'] }}"
+                         class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                    {{-- Overlay Gradient --}}
+                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                    {{-- Title --}}
+                    <div class="absolute bottom-0 left-0 p-5">
+                        {{-- PERUBAHAN WARNA HOVER TEKS DI SINI --}}
+                        <h5 class="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-gray-300">
+                            {{ $item['title'] }}
+                        </h5>
+                    </div>
                 </div>
             </a>
-
-            {{-- Card 2 --}}
-            <a href="#" class="block rounded-xl shadow-md overflow-hidden bg-white transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.98]">
-                <div class="h-48">
-                    <img src="{{ asset('images/ratuboko.jpg') }}" alt="Candi Ratu Boko saat matahari terbenam" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-semibold text-gray-800 mb-1">Sunset di Ratu Boko</h3>
-                    <p class="text-gray-500 text-sm">2 Juni 2025</p>
-                </div>
-            </a>
-
-            {{-- Card 3 --}}
-            <a href="#" class="block rounded-xl shadow-md overflow-hidden bg-white transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.98]">
-                <div class="h-48">
-                    <img src="{{ asset('images/merapi.jpg') }}" alt="Pemandangan Gunung Merapi dari kejauhan" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-semibold text-gray-800 mb-1">Megahnya Gunung Merapi</h3>
-                    <p class="text-gray-500 text-sm">1 Juni 2025</p>
-                </div>
-            </a>
-
-            {{-- Card 4 --}}
-            <a href="#" class="block rounded-xl shadow-md overflow-hidden bg-white transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.98]">
-                <div class="h-48">
-                    <img src="{{ asset('images/sermo.jpeg') }}" alt="Waduk Sermo di Kulon Progo" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-semibold text-gray-800 mb-1">Tenangnya Waduk Sermo</h3>
-                    <p class="text-gray-500 text-sm">31 Mei 2025</p>
-                </div>
-            </a>
-
-            {{-- Card 5 --}}
-            <a href="#" class="block rounded-xl shadow-md overflow-hidden bg-white transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.98]">
-                <div class="h-48">
-                    <img src="{{ asset('images/pinusmangun.jpg') }}" alt="Hutan Pinus Mangunan" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-semibold text-gray-800 mb-1">Sejuknya Hutan Pinus</h3>
-                    <p class="text-gray-500 text-sm">30 Mei 2025</p>
-                </div>
-            </a>
-
-            {{-- Card 6 --}}
-            <a href="#" class="block rounded-xl shadow-md overflow-hidden bg-white transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.98]">
-                <div class="h-48">
-                    <img src="{{ asset('images/vredeburg.jpg') }}" alt="Museum Benteng Vredeburg di Yogyakarta" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <h3 class="font-semibold text-gray-800 mb-1">Sejarah di Vredeburg</h3>
-                    <p class="text-gray-500 text-sm">29 Mei 2025</p>
-                </div>
-            </a>
-
+            @endforeach
         </div>
     </div>
 

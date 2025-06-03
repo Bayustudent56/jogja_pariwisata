@@ -19,29 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/beranda', function () {
     return view('beranda');
 });
-Route::get('/berat', function () {
-    return view('berat');
+Route::get('/galeri', function () {
+    return view('galeri');
 });
 
-Route::get('/berita/terkini', function () {
-    return view('berita.terkini');
-});
-
-Route::get('/berita/destinasi', function () {
-    return view('berita.destinasi');
-});
-
-Route::get('/berita/kuliner', function () {
-    return view('berita.kuliner');
-});
-
-Route::get('/destinasi', function () {
-    return view('destinasi');
-});
-
-Route::get('/kuliner', function () {
-    return view('kuliner');
-});
+Route::get('/galeri/alam', function () {
+    return view('galeri.alam');  
+})->name('galeri.alam'); 
 
 Route::get('/kuliner/berat', function () {
     return view('kuliner.berat');
