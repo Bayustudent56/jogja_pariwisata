@@ -27,6 +27,13 @@ Route::get('/galeri/alam', function () {
     return view('galeri.alam');  
 })->name('galeri.alam'); 
 
+// routes/web.php
+
+Route::get('/galeri/budaya-sejarah', function () { // Ganti '&' di URL path
+    return view('galeri.budaya-sejarah');           // Ganti '&' di nama view dan tambahkan subfolder 'galeri'
+})->name('galeri.budaya-sejarah');                
+
+//--------------------------------//
 Route::get('/kuliner/berat', function () {
     return view('kuliner.berat');
 })->name('kuliner.berat');

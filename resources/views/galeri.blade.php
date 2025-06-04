@@ -32,8 +32,8 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8">
             @php
                 $galleryItems = [
-                    ['title' => 'Alam', 'image' => asset('images/merapi.jpg'), 'link' => '#art-culture'],
-                    ['title' => 'Budaya & Sejarah', 'image' => asset('images/budaya.jpg'), 'link' => '#culinary'],
+                    ['title' => 'Alam', 'image' => asset('images/merapi.jpg'), 'link' => '#alam'],
+                    ['title' => 'Budaya & Sejarah', 'image' => asset('images/budaya.jpg'), 'link' => '#budaya&sejarah'],
                     ['title' => 'Edukasi', 'image' => asset('images/sonobudoyo2.jpg'), 'link' => '#landscape'],
                     // PERUBAHAN PADA BARIS DI BAWAH INI
                     ['title' => 'Kreatif', 'image' => asset('images/artpaper.jpg'), 'link' => '#sports-adventure'],
