@@ -154,37 +154,26 @@
     </div>
 
     {{-- BAGIAN 4: ARTIKEL --}}
-    <div class="bg-gray-100 py-16 px-4 md:px-8 lg:px-16">
-        <div class="container mx-auto">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl font-semibold text-gray-800">Artikel</h2>
-                <a href="#" class="text-blue-600 text-sm font-semibold hover:underline">Lihat Selengkapnya <span aria-hidden="true">&rarr;</span></a>
-            </div>
-    
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                {{-- Artikel 1 --}}
-                <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
+    <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/2">
-                            <img src="{{ asset('images/artikel1.jpg') }}" alt="10 Rekomendasi Wisata di Indonesia" class="w-full h-48 md:h-full object-cover">
+                            <img src="{{ asset('images/artikel2.jpg') }}" alt="Jelajah Kuliner Jateng & Jogja" class="w-full h-48 md:h-full object-cover">
                         </div>
                         <div class="p-4 md:p-6 md:w-1/2 flex flex-col">
                             <p class="text-gray-500 text-xs mb-2 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                6 Juli 2023
+                                3 Juli 2023
                             </p>
-                            <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">10 Rekomendasi Wisata di Indonesia</h3>
-                            <ul class="list-disc list-inside text-gray-600 text-xs space-y-1">
-                                <li>Candi Borobudur di Magelang</li>
-                                <li>Tanjung Kelayang di Belitung</li>
-                                <li>Mandalika di Nusa Tenggara Barat</li>
-                            </ul>
+                            <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">Jelajah Kuliner Jateng & Jogja</h3>
+                            <p class="text-gray-600 text-xs leading-relaxed">
+                                Jawa Tengah dan Yogyakarta terus mempesona tak hanya dengan destinasi wisata nan memukau, tapi kekayaan budaya kulinernya...
+                            </p>
                         </div>
                     </div>
                 </a>
+
     
                 {{-- Artikel 2 --}}
                 <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">

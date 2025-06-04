@@ -62,4 +62,15 @@ Route::get('/destinasi/yogyakarta', function () {
     return view('destinasi.yogyakarta');
 });
 
+Route::get('/artikel', function () {
+    return view('artikel');
+});
+
+Route::get('/geplak', function () {
+    return view('geplak');
+});
+
+
+
+
 require __DIR__.'/auth.php';
