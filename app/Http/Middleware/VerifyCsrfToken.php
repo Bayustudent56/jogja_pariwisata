@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        // URI lain yang mungkin sudah ada
+        // '/tambahgaleri/tinymce-upload', // <-- TAMBAHKAN BARIS INI
     ];
 }
