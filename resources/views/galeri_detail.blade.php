@@ -73,8 +73,7 @@
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
         width: 100%; /* Lebar penuh */
-        /* Padding horizontal untuk seluruh area konten, agar tidak menempel tepi layar */
-        padding-left: 1rem;
+        padding-left: 1rem; /* Padding horizontal default */
         padding-right: 1rem;
         line-height: 1.625;
         color: #374151; /* text-gray-800 */
@@ -94,12 +93,11 @@
     }
 
     /* Styling default untuk elemen HTML yang dihasilkan TinyMCE */
-    /* Ini akan membuat gambar dan paragraf di dalam TinyMCE full width dari container-nya */
-    .main-content-area .prose { /* Targetkan langsung div.prose di dalam main-content-area */
-        max-width: none; /* Hapus batasan max-width pada prose */
+    .main-content-area .prose {
+        max-width: none;
         margin-left: 0;
         margin-right: 0;
-        padding: 0; /* Hapus padding default prose jika sudah dihandle oleh parent */
+        padding: 0;
     }
     .main-content-area .prose img {
         max-width: 100%;
@@ -136,6 +134,16 @@
                 {{ $galeri->judul }}
             </h1>
             <div class="meta-info">
+                {{-- ICON PENULIS BARU --}}
+                <span class="flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    Admin {{-- Teks "Admin" atau bisa diganti dengan nama penulis jika ada --}}
+                </span>
+                {{-- END ICON PENULIS BARU --}}
+
                 <span class="flex items-center gap-1">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -160,16 +168,18 @@
 
     {{-- Konten Utama (Full Width) --}}
     <div class="main-content-area">
-        {{-- Konten Keterangan dari TinyMCE --}}
-        <div class="prose prose-lg lg:prose-xl max-w-none content-body">
-            {!! $galeri->keterangan !!}
-        </div>
-        
-        {{-- Tombol Kembali ke Daftar Galeri Kategori --}}
-        <div class="mt-10 pt-6 border-t border-gray-200 flex flex-wrap justify-start gap-3">
-            <a href="{{ route('galeri.by.category.public', ['slug' => $galeri->kategoriGaleri?->slug ?? 'uncategorized']) }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded text-sm">
-                &larr; Kembali ke Kategori Galeri {{ $galeri->kategoriGaleri?->nama_kategori ?? '' }}
-            </a>
+        <div class="main-content-article-body"> 
+            {{-- Konten Keterangan dari TinyMCE --}}
+            <div class="prose prose-lg lg:prose-xl max-w-none content-body">
+                {!! $galeri->keterangan !!}
+            </div>
+            
+            {{-- Tombol Kembali ke Daftar Galeri Kategori --}}
+            <div class="mt-10 pt-6 border-t border-gray-200 flex flex-wrap justify-start gap-3">
+                <a href="{{ route('galeri.by.category.public', ['slug' => $galeri->kategoriGaleri?->slug ?? 'uncategorized']) }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded text-sm">
+                    &larr; Kembali ke Kategori Galeri {{ $galeri->kategoriGaleri?->nama_kategori ?? '' }}
+                </a>
+            </div>
         </div>
     </div>
 </div>
