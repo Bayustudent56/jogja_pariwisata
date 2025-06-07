@@ -1,6 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
-@section('title', $galeri->judul)
+@section('title', $artikel->judul)
+
 
 @push('styles')
 <style>
@@ -20,7 +21,7 @@
     .header-dominant .overlay-dark {
         position: absolute;
         inset: 0;
-        background-color: rgba(0, 0, 0, 0.70); /* Overlay hitam seperti gambar */
+        background-color: rgba(0, 0, 0, 0.70);
         z-index: 1;
     }
     .header-dominant .content-wrapper {
@@ -147,13 +148,13 @@
 <div class="w-full">
     {{-- Header Penuh Lebar dengan Gambar Latar Belakang dan Overlay Gelap --}}
     <div class="header-dominant lozad page-banner"
-         data-background-image="{{ asset('storage/' . $galeri->gambar) }}"
-         style="background-image: url('{{ asset('storage/' . $galeri->gambar) }}');"> {{-- Fallback style --}}
+         data-background-image="{{ asset('storage/' . $artikel->gambar) }}"
+         style="background-image: url('{{ asset('storage/' . $artikel->gambar) }}');"> {{-- Fallback style --}}
         <div class="overlay-dark"></div>
         
-        {{-- TOMBOL DOWNLOAD GALERI --}}
-        @if($galeri->gambar) {{-- Hanya tampilkan jika ada gambar utama --}}
-            <a href="#" onclick="downloadGallery(event)" class="download-button-header">
+        {{-- TOMBOL DOWNLOAD ARTIKEL --}}
+        @if($artikel->gambar) {{-- Hanya tampilkan jika ada gambar utama --}}
+            <a href="#" onclick="downloadArticle(event)" class="download-button-header">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
@@ -163,13 +164,13 @@
 
         <div class="content-wrapper">
             <h1>
-                {{ $galeri->judul }}
+                {{ $artikel->judul }}
             </h1>
             <div class="meta-info">
                 <span class="flex items-center gap-1">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            d="M15 10l4.553 2.276A2 2 0 0121 14.118V18a2 2 0 01-2 2H5a2 2 0 01-2-2v-3.882a2 2 0 011.447-1.842L9 10m6 0V5a3 3 0 00-6 0v5m6 0H9" />
                     </svg>
                     Admin {{-- Teks "Admin" atau bisa diganti dengan nama penulis jika ada --}}
                 </span>
@@ -178,12 +179,12 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    {{ $galeri->created_at->format('d F Y') }}
+                    {{ $artikel->created_at->format('d F Y') }}
                 </span>
-                @if($galeri->kategoriGaleri)
+                @if($artikel->kategoriArtikel)
                 <span class="flex items-center gap-1">
                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7.414 7.414a2 2 0 010 2.828l-5.657 5.657a2 2 0 01-2.828 0L3.586 13.414A2 2 0 013 12V7a4 4 0 014-4z" /></svg>
-                    {{ $galeri->kategoriGaleri->nama_kategori }}
+                    {{ $artikel->kategoriArtikel->nama_kategori }}
                 </span>
                 @endif
                 <span class="flex items-center gap-1">
@@ -191,7 +192,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
-                    {{ $galeri->view_count }} dilihat
+                    {{ $artikel->view_count }} dilihat
                 </span>
             </div>
         </div>
@@ -200,15 +201,15 @@
     {{-- Konten Utama (Full Width) --}}
     <div class="main-content-area">
         <div class="main-content-article-body"> 
-            {{-- Konten Keterangan dari TinyMCE --}}
+            {{-- Konten Isi Artikel dari TinyMCE --}}
             <div class="prose prose-lg lg:prose-xl max-w-none content-body">
-                {!! $galeri->keterangan !!}
+                {!! $artikel->isi !!}
             </div>
             
-            {{-- Tombol Kembali ke Daftar Galeri Kategori --}}
+            {{-- Tombol Kembali ke Daftar Artikel Kategori --}}
             <div class="mt-10 pt-6 border-t border-gray-200 flex flex-wrap justify-start gap-3">
-                <a href="{{ route('galeri.by.category.public', ['slug' => $galeri->kategoriGaleri?->slug ?? 'uncategorized']) }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded text-sm">
-                    &larr; Kembali ke Kategori Galeri {{ $galeri->kategoriGaleri?->nama_kategori ?? '' }}
+                <a href="{{ route('artikel.by.category.public', ['slug' => $artikel->kategoriArtikel?->slug ?? 'uncategorized']) }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded text-sm">
+                    &larr; Kembali ke Kategori Artikel {{ $artikel->kategoriArtikel?->nama_kategori ?? '' }}
                 </a>
             </div>
         </div>
@@ -216,9 +217,10 @@
 </div>
 @endsection
 
+
 @push('scripts')
 <script>
-    async function downloadGallery(event) {
+    async function downloadArticle(event) {
         event.preventDefault(); // Mencegah link default
 
         const title = document.querySelector('h1').textContent.trim();
@@ -241,7 +243,7 @@
                     const base64Bg = await imageUrlToBase64(bgImageUrl);
                     tempHeader.style.backgroundImage = `url('${base64Bg}')`;
                 } catch (error) {
-                    console.error('Gagal mengkonversi gambar latar belakang header kloning ke Base64:', error);
+                    console.error('Gagal mengkonversi gambar latar belakang header ke Base64 saat kloning:', error);
                 }
             }
             clonedHeaderHTML = tempHeader.outerHTML;

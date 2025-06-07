@@ -17,11 +17,11 @@ class KategoriArtikelSeeder extends Seeder
         // Path gambar ini relatif terhadap folder public/images/
         $kategorisData = [
             ['nama_kategori' => 'Alam', 'gambar' => 'images/alam.jpg'],
-            ['nama_kategori' => 'Budaya & Sejarah', 'gambar' => 'images/budaya.jpg'],
+            ['nama_kategori' => 'Budaya & Sejarah', 'gambar' => 'images/budaya2.jpg'],
             ['nama_kategori' => 'Edukasi', 'gambar' => 'images/edukasi.jpg'],
             ['nama_kategori' => 'Kreatif', 'gambar' => 'images/kreatif.jpg'],
-            ['nama_kategori' => 'Kuliner Tradisional', 'gambar' => 'images/kuliner-tradisional.jpg'],
-            ['nama_kategori' => 'Kuliner Kekinian', 'gambar' => 'images/kuliner-kekinian.jpg'],
+            ['nama_kategori' => 'Kuliner Tradisional', 'gambar' => 'images/kulinertradisional.png'],
+            ['nama_kategori' => 'Kuliner Kekinian', 'gambar' => 'images/coklat.jpg'],
         ];
 
         foreach ($kategorisData as $data) {

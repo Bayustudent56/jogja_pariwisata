@@ -26,5 +26,9 @@ class DatabaseSeeder extends Seeder
 
         // Opsional: Buat beberapa user dummy
         // \App\Models\User::factory(10)->create();
+        $this->call(ArtikelsTableSeeder::class);
+        $this->call(GalerisTableSeeder::class);
+        $this->call(KategoriArtikelsTableSeeder::class);
+        $this->call(KategoriGalerisTableSeeder::class);
     }
 }

@@ -7,21 +7,44 @@ use App\Models\KategoriGaleri;
 use App\Models\Galeri;
 use App\Models\KategoriArtikel;
 use App\Models\Artikel;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str; // Tambahkan ini jika Str::slug digunakan di metode lain yang di-uncomment
+use Illuminate\Support\Facades\Log; // Pastikan ini ada
+use Carbon\Carbon; // <--- DITAMBAHKAN untuk showDaerahDetail
+use Illuminate\Support\Facades\Storage; // <--- DITAMBAHKAN untuk uploadDaerahImage
+
 
 class PublicController extends Controller
 {
+    /**
+     * Menampilkan halaman beranda dengan data dinamis terbaru.
+     * URL: /
+     */
+    public function berandaIndex()
+    {
+        Log::info('PublicController@berandaIndex: Mengambil data untuk halaman beranda.');
+        
+        // Ambil 6 galeri terbaru untuk ditampilkan di beranda
+        $latestGaleris = Galeri::with('kategoriGaleri')
+                               ->orderBy('created_at', 'desc')
+                               ->limit(6) // Ambil 6 saja
+                               ->get();
+
+        // Ambil 4 artikel terbaru untuk ditampilkan di beranda
+        $latestArtikels = Artikel::with('kategoriArtikel')
+                                 ->orderBy('created_at', 'desc')
+                                 ->limit(4) // Ambil 4 saja
+                                 ->get();
+
+        // Kirim data ke view 'beranda'
+        return view('beranda', compact('latestGaleris', 'latestArtikels'));
+    }
+
     /**
      * Menampilkan halaman galeri publik dengan daftar KATEGORI GALERI.
      * URL: /galeri
      */
     public function galeriIndex()
     {
-    // --- BARIS DEBUG INI ---
-        // dd('Controller galeriIndex dipanggil!', KategoriGaleri::orderBy('nama_kategori', 'asc')->get());
-                // --- HAPUS BARIS INI SETELAH SELESAI DEBUGGING ---
-
         Log::info('PublicController@galeriIndex: Mengambil daftar kategori galeri.');
         $kategoriGaleris = KategoriGaleri::orderBy('nama_kategori', 'asc')->get();
         return view('galeri', compact('kategoriGaleris'));
@@ -37,9 +60,9 @@ class PublicController extends Controller
         $kategori = KategoriGaleri::where('slug', $slug)->firstOrFail();
 
         $galeris = Galeri::where('kategori_galeri_id', $kategori->id)
-                           ->with('kategoriGaleri')
-                           ->orderBy('created_at', 'desc')
-                           ->get();
+                            ->with('kategoriGaleri')
+                            ->orderBy('created_at', 'desc')
+                            ->get();
 
         return view('galeri_by_category', compact('kategori', 'galeris'));
     }
@@ -52,8 +75,8 @@ class PublicController extends Controller
     {
         Log::info('PublicController@showGalleryPublic: Mengambil detail galeri dengan slug: ' . $slug);
         $galeri = Galeri::where('slug', $slug)
-                        ->with('kategoriGaleri')
-                        ->firstOrFail();
+                         ->with('kategoriGaleri')
+                         ->firstOrFail();
 
         try {
             $galeri->increment('view_count');
@@ -113,4 +136,10 @@ class PublicController extends Controller
 
         return view('artikel_detail', compact('artikel'));
     }
+
+    /**
+     * Menampilkan daftar ARTIKEL berdasarkan DAERAH.
+     * URL: /artikel/daerah/{daerah_slug}
+     */
 }
+
