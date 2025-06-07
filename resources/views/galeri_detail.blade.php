@@ -8,7 +8,7 @@
     .header-dominant {
         position: relative;
         width: 100%;
-        height: 400px; /* Tinggi header sesuai gambar */
+        height: 400px; /* Tinggi header */
         background-size: cover;
         background-position: center center;
         display: flex;
@@ -28,23 +28,23 @@
         z-index: 2;
         width: 100%;
         max-width: 1200px; /* Lebar maksimal content-wrapper di header */
-        margin-left: 2rem; /* Jarak dari kiri seperti gambar */
+        margin-left: 2rem;
         margin-right: auto;
-        padding-left: 1rem; /* Padding internal */
+        padding-left: 1rem;
         padding-right: 1rem;
     }
     @media (min-width: 768px) { /* md breakpoint */
         .header-dominant .content-wrapper {
-            margin-left: 4rem; /* Sesuaikan margin-left untuk layar lebih besar */
+            margin-left: 4rem;
         }
     }
     @media (min-width: 1024px) { /* lg breakpoint */
         .header-dominant .content-wrapper {
-            margin-left: 6rem; /* Sesuaikan margin-left untuk layar desktop */
+            margin-left: 6rem;
         }
     }
     .header-dominant h1 {
-        font-size: 2.5rem; /* text-4xl */
+        font-size: 2.5rem;
         font-weight: bold;
         line-height: 1.2;
         text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
@@ -53,9 +53,9 @@
     .header-dominant .meta-info {
         display: flex;
         flex-wrap: wrap;
-        gap: 1.5rem; /* Jarak antar item meta */
+        gap: 1.5rem;
         font-size: 0.875rem;
-        color: #e5e7eb; /* text-gray-200 */
+        color: #e5e7eb;
     }
     .header-dominant .meta-info span {
         display: flex;
@@ -67,16 +67,37 @@
         height: 1rem;
     }
 
+    /* Styling untuk Tombol Download di Pojok Kanan Atas Header */
+    .download-button-header {
+        position: absolute;
+        top: 1rem; /* Jarak dari atas */
+        right: 1rem; /* Jarak dari kanan */
+        z-index: 3; /* Pastikan di atas overlay */
+        background-color: rgba(255, 255, 255, 0.2); /* Latar belakang transparan */
+        padding: 0.5rem;
+        border-radius: 9999px; /* Bentuk lingkaran/oval */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .download-button-header:hover {
+        background-color: rgba(255, 255, 255, 0.4); /* Lebih solid saat hover */
+    }
+    .download-button-header svg {
+        width: 1.5rem; /* Ukuran ikon */
+        height: 1.5rem;
+        color: white; /* Warna ikon putih */
+    }
+
     /* Styling untuk Konten Utama (Benar-benar Full Width) */
     .main-content-area {
-        background-color: #ffffff; /* Latar belakang putih untuk konten */
+        background-color: #ffffff;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
-        width: 100%; /* Lebar penuh */
-        padding-left: 1rem; /* Padding horizontal default */
+        width: 100%;
+        padding-left: 1rem;
         padding-right: 1rem;
         line-height: 1.625;
-        color: #374151; /* text-gray-800 */
+        color: #374151;
         text-align: justify;
     }
     @media (min-width: 640px) { /* sm breakpoint */
@@ -129,12 +150,22 @@
          data-background-image="{{ asset('storage/' . $galeri->gambar) }}"
          style="background-image: url('{{ asset('storage/' . $galeri->gambar) }}');"> {{-- Fallback style --}}
         <div class="overlay-dark"></div>
+        
+        {{-- TOMBOL DOWNLOAD GALERI --}}
+        @if($galeri->gambar) {{-- Hanya tampilkan jika ada gambar utama --}}
+            <a href="#" onclick="downloadGallery(event)" class="download-button-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+            </a>
+        @endif
+        {{-- END TOMBOL DOWNLOAD --}}
+
         <div class="content-wrapper">
             <h1>
                 {{ $galeri->judul }}
             </h1>
             <div class="meta-info">
-                {{-- ICON PENULIS BARU --}}
                 <span class="flex items-center gap-1">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -142,8 +173,6 @@
                     </svg>
                     Admin {{-- Teks "Admin" atau bisa diganti dengan nama penulis jika ada --}}
                 </span>
-                {{-- END ICON PENULIS BARU --}}
-
                 <span class="flex items-center gap-1">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -151,10 +180,12 @@
                     </svg>
                     {{ $galeri->created_at->format('d F Y') }}
                 </span>
+                @if($galeri->kategoriGaleri)
                 <span class="flex items-center gap-1">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7.414 7.414a2 2 0 010 2.828l-5.657 5.657a2 2 0 01-2.828 0L3.586 13.414A2 2 0 013 12V7a4 4 0 014-4z" /></svg>
+                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7.414 7.414a2 2 0 010 2.828l-5.657 5.657a2 2 0 01-2.828 0L3.586 13.414A2 2 0 013 12V7a4 4 0 014-4z" /></svg>
                     {{ $galeri->kategoriGaleri->nama_kategori }}
                 </span>
+                @endif
                 <span class="flex items-center gap-1">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -184,3 +215,120 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    async function downloadGallery(event) {
+        event.preventDefault(); // Mencegah link default
+
+        const title = document.querySelector('h1').textContent.trim();
+        // Mengambil seluruh elemen dokumen
+        const fullPageClone = document.documentElement.cloneNode(true);
+
+        // --- Persiapan Header untuk File yang Diunduh ---
+        const originalHeader = document.querySelector('.header-dominant');
+        let clonedHeaderHTML = '';
+        if (originalHeader) {
+            const tempHeader = originalHeader.cloneNode(true);
+            // Hapus tombol download dari header yang dikloning
+            const downloadButton = tempHeader.querySelector('.download-button-header');
+            if (downloadButton) downloadButton.remove();
+
+            // Konversi gambar latar belakang header ke Base64 di dalam klon
+            const bgImageUrl = tempHeader.style.backgroundImage ? tempHeader.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/, '$1') : '';
+            if (bgImageUrl && bgImageUrl.startsWith(window.location.origin) && !bgImageUrl.startsWith('data:')) {
+                try {
+                    const base64Bg = await imageUrlToBase64(bgImageUrl);
+                    tempHeader.style.backgroundImage = `url('${base64Bg}')`;
+                } catch (error) {
+                    console.error('Gagal mengkonversi gambar latar belakang header kloning ke Base64:', error);
+                }
+            }
+            clonedHeaderHTML = tempHeader.outerHTML;
+        }
+
+        // --- Persiapan Konten Utama untuk File yang Diunduh ---
+        const originalMainContentArea = document.querySelector('.main-content-area');
+        let clonedMainContentHTML = '';
+        if (originalMainContentArea) {
+            const tempMainContent = originalMainContentArea.cloneNode(true);
+            // Hapus tombol "Kembali" dari konten yang diunduh
+            const backButtonDiv = tempMainContent.querySelector('.mt-10.pt-6.border-t');
+            if (backButtonDiv) {
+                backButtonDiv.remove();
+            }
+
+            // Konversi semua gambar di dalam konten utama ke Base64
+            const imagesInContent = tempMainContent.querySelectorAll('img');
+            const imageContentPromises = Array.from(imagesInContent).map(async (img) => {
+                const originalSrc = img.src;
+                if (originalSrc && originalSrc.startsWith(window.location.origin) && !originalSrc.startsWith('data:')) {
+                    try {
+                        const base64 = await imageUrlToBase64(originalSrc);
+                        img.src = base64; // Ganti src dengan Base64
+                    } catch (error) {
+                        console.warn(`Gagal mengkonversi gambar konten ${originalSrc} ke Base64:`, error);
+                    }
+                }
+            });
+            await Promise.all(imageContentPromises); // Tunggu semua gambar konten selesai
+
+            clonedMainContentHTML = tempMainContent.outerHTML;
+        }
+
+        // --- Ambil semua CSS dari halaman asli dan masukkan secara inline ---
+        let allStyles = '';
+        Array.from(document.styleSheets).forEach(sheet => {
+            try {
+                if (sheet.cssRules) {
+                    allStyles += Array.from(sheet.cssRules)
+                                    .map(rule => rule.cssText)
+                                    .join('\n');
+                }
+            } catch (e) {
+                console.warn('Gagal membaca stylesheet:', sheet.href || sheet.ownerNode, e);
+            }
+        });
+
+        // Buat HTML lengkap untuk file yang akan diunduh
+        const fullHtmlContent = `
+            <!DOCTYPE html>
+            <html lang="id">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>${title}</title>
+                <style>${allStyles}</style>
+            </head>
+            <body>
+                ${clonedHeaderHTML}
+                ${clonedMainContentHTML}
+            </body>
+            </html>
+        `;
+
+        const blob = new Blob([fullHtmlContent], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}.html`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    // Fungsi helper untuk mengkonversi URL gambar ke Base64
+    async function imageUrlToBase64(url) {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+    }
+</script>
+@endpush
