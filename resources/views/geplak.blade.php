@@ -1,16 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Header dengan gambar dan border bawah oval -->
 <div class="relative w-full overflow-hidden">
-    <!-- Gambar header -->
     <img src="{{ asset('images/geplak.jpg') }}" alt="Geplak" class="w-full h-60 object-cover">
 
+    <div class="absolute inset-0 bg-white bg-opacity-70"></div>
 
-    <!-- Overlay putih transparan -->
-    <div class="absolute inset-0 bg-white bg-opacity-70 rounded-b-[100px]"></div>
-
-    <!-- Konten judul -->
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-gray-800">
         <h1 class="text-xl md:text-3xl font-bold">Geplak Mbok Tumpuk: Warisan Manis dari Bantul, Yogyakarta</h1>
         <div class="flex flex-wrap items-center gap-4 text-sm mt-2">
@@ -32,17 +27,24 @@
     </div>
 </div>
 
-<!-- Breadcrumb bubble -->
-<div class="flex justify-center -mt-6 z-10 relative">
-    <div class="bg-white shadow-md rounded-full px-6 py-2 text-sm text-gray-700">
-        <a href="/" class="hover:text-blue-600">Home</a> › 
-        <a href="/kategori/makanan" class="hover:text-blue-600">Makanan</a> › 
-        <span class="text-blue-600 font-semibold">Geplak Mbok Tumpuk</span>
-    </div>
+<div class="container mx-auto px-4 mt-10 mb-6">
+    <nav aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-sm text-gray-500">
+            <li><a href="{{ url('/') }}" class="hover:text-blue-600 hover:underline">Beranda</a></li>
+            <li>
+                <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+            </li>
+            <li><a href="/kategori/makanan" class="hover:text-blue-600 hover:underline">Makanan</a></li>
+            <li>
+                <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+            </li>
+            <li class="font-medium text-gray-700" aria-current="page">Geplak Mbok Tumpuk</li>
+        </ol>
+    </nav>
 </div>
 
-<!-- Konten Artikel -->
-<div class="max-w-5xl mx-auto mt-6 px-4 pb-12 leading-relaxed text-gray-800 text-justify">
+
+<div class="max-w-5xl mx-auto px-4 pb-12 leading-relaxed text-gray-800 text-justify">
     <p class="mb-4">
         Geplak Mbok Tumpuk adalah salah satu ikon kuliner tradisional khas Bantul, Yogyakarta, yang telah melegenda sejak puluhan tahun lalu. Terbuat dari parutan kelapa yang dicampur gula dan pewarna alami, geplak ini dikenal dengan cita rasa manis legit yang khas, serta tampilan warna-warni yang mencolok. 
     </p>

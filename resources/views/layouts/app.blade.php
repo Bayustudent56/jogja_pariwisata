@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="hidden lg:flex items-center space-x-8">
-                        <a href="/" class="text-lg text-gray-700 hover:text-blue-600">Home</a>
+                        <a href="/" class="text-lg text-gray-700 hover:text-blue-600">Beranda</a>
 
                         {{-- Galeri sekarang menjadi link biasa, dropdown dihilangkan --}}
                         <a href="#" class="text-lg text-gray-700 hover:text-blue-600">Galeri</a>
@@ -109,7 +109,7 @@
                     <input type="text" placeholder="Search..." class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 {{-- Item Navigasi Mobile --}}
-                <a href="/" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Home</a>
+                <a href="/" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Beranda</a>
                 <a href="#" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Galeri</a>
                 <a href="/artikel" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Artikel</a> {{-- Destinasi -> Artikel --}}
                 {{-- Kuliner telah dihapus --}}
