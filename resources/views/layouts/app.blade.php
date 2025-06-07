@@ -160,7 +160,7 @@
                     </div>
 
                     <div class="hidden lg:flex items-center space-x-8">
-                        <a href="{{ route('beranda') }}" class="text-lg text-gray-700 hover:text-blue-600">Home</a>
+                        <a href="{{ route('beranda') }}" class="text-lg text-gray-700 hover:text-blue-600">Beranda</a>
                         <a href="{{ route('galeri.public') }}" class="text-lg text-gray-700 hover:text-blue-600">Galeri</a>
                         <a href="{{ route('artikel.public') }}" class="text-lg text-gray-700 hover:text-blue-600">Artikel</a>
                     </div>
@@ -216,7 +216,7 @@
                     <input type="text" placeholder="Search..." class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 {{-- Item Navigasi Mobile --}}
-                <a href="{{ route('beranda') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Home</a>
+                <a href="{{ route('beranda') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Beranda</a>
                 <a href="{{ route('galeri.public') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Galeri</a>
                 <a href="{{ route('artikel.public') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Artikel</a>
             </div>
