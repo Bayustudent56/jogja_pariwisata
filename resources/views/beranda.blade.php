@@ -40,11 +40,7 @@
             <div class="flex space-x-6 overflow-x-auto pb-4 p-2">
 
                 {{-- Kartu 1: Sleman --}}
-<<<<<<< HEAD
                 <a href="/artikel/SLEMAN" class="block flex-none w-72">
-=======
-                <a href="{{ route('daerah.sleman') }}" class="block flex-none w-72">
->>>>>>> 0c17db3e793b5e8ff30ad6bb8a4f4258b3abc00a
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/merapi.jpg') }}" alt="Gunung Merapi, Sleman" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -57,11 +53,7 @@
                 </a>
             
                 {{-- Kartu 2: Kota Yogyakarta --}}
-<<<<<<< HEAD
                 <a href="/artikel/Kota-Yogyakarta" class="block flex-none w-72">
-=======
-                <a href="{{ route('daerah.kotajogja') }}" class="block flex-none w-72">
->>>>>>> 0c17db3e793b5e8ff30ad6bb8a4f4258b3abc00a
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/malbor.jpg') }}" alt="Malioboro, Kota Yogyakarta" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -74,11 +66,7 @@
                 </a>
             
                 {{-- Kartu 3: Gunungkidul --}}
-<<<<<<< HEAD
                 <a href="/artikel/Gunungkidul" class="block flex-none w-72">
-=======
-                <a href="{{ route('daerah.gunungkidul') }}" class="block flex-none w-72">
->>>>>>> 0c17db3e793b5e8ff30ad6bb8a4f4258b3abc00a
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/klanyar.jpg') }}" alt="Pantai Indrayanti, Gunungkidul" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -91,11 +79,7 @@
                 </a>
             
                 {{-- Kartu 4: Bantul --}}
-<<<<<<< HEAD
                 <a href="/artikel/Bantul" class="block flex-none w-72">
-=======
-                <a href="{{ route('daerah.bantul') }}" class="block flex-none w-72">
->>>>>>> 0c17db3e793b5e8ff30ad6bb8a4f4258b3abc00a
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/parangtritis.jpg') }}" alt="Pantai Parangtritis, Bantul" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -108,11 +92,7 @@
                 </a>
             
                 {{-- Kartu 5: Kulon Progo --}}
-<<<<<<< HEAD
                 <a href="/artikel/Kulon-Progo" class="block flex-none w-72">
-=======
-                <a href="{{ route('daerah.kulonprogo') }}" class="block flex-none w-72">
->>>>>>> 0c17db3e793b5e8ff30ad6bb8a4f4258b3abc00a
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/kalibiru.jpg') }}" alt="Puncak Kalibiru, Kulon Progo" class="w-full h-48 object-cover">
                         <div class="p-4">
