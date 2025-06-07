@@ -2,6 +2,7 @@
 
 @section('title', $galeri->judul)
 
+
 @push('styles')
 <style>
     /* Styling untuk Header dengan Gambar Latar Belakang Penuh dan Overlay */
@@ -23,6 +24,7 @@
         background-color: rgba(0, 0, 0, 0.70); /* Overlay hitam seperti gambar */
         z-index: 1;
     }
+
     .header-dominant .content-wrapper {
         position: relative;
         z-index: 2;

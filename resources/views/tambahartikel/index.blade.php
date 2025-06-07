@@ -2,6 +2,7 @@
 
 @section('title', 'Daftar Artikel')
 
+
 @section('content')
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -109,6 +110,7 @@
 {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> --}}
 {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"> --}}
 {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script> --}}
+
 
 <script>
     $(document).ready(function () {

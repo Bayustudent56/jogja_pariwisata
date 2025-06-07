@@ -2,6 +2,7 @@
 
 @section('title', 'Galeri Foto (Kategori)')
 
+
 @push('styles')
 <style>
     /* Gaya spesifik untuk banner utama di halaman ini (sama seperti sebelumnya) */
@@ -100,6 +101,7 @@
                 <li class="font-medium text-gray-700" aria-current="page">Galeri</li>
             </ol>
         </nav>
+
 
         <h2 class="text-3xl font-bold text-gray-800 mt-8 mb-6 text-center">Kategori Galeri</h2>
 

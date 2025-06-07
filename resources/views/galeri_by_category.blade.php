@@ -2,6 +2,7 @@
 
 @section('title', 'Galeri Kategori: ' . $kategori->nama_kategori)
 
+
 @push('styles')
 <style>
     /* Styling hero section dan card galeri */
@@ -137,6 +138,7 @@
     </div>
 
 @endsection
+
 
 @push('scripts')
 {{-- Lozad.js sudah dimuat di layouts/app.blade.php --}}

@@ -2,7 +2,9 @@
 
 @section('title', isset($galeri) ? 'Edit Galeri: ' . $galeri->judul : 'Tambah Galeri Baru')
 
+
 @push('styles')
+
     {{-- PASTIKAN INI ADA DAN API KEY SUDAH DIGANTI! Ini krusial untuk TinyMCE --}}
     {{-- <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
     {{-- Penting: Ganti 'YOUR_API_KEY' dengan kunci API TinyMCE Anda yang sebenarnya.
