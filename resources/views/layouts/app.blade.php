@@ -4,52 +4,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Pariwisata Jogja</title>
+    <title>@yield('title', 'XploreJogja')</title>
 
-    {{-- PASTIKAN INI ADALAH CDN ALPINE.JS VERSI 3.x.x --}}
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    {{-- Tailwind CSS CDN --}}
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    {{-- Google Fonts: Poppins --}}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
-    {{-- CSS Kustom untuk tinggi menu mobile --}}
+    
+    {{-- CSS Kustom Penuh untuk Halaman Publik (dipindahkan dari @push('styles')) --}}
     <style>
-        .h-screen-minus-navbar {
-            /* Asumsi tinggi navbar 64px (py-4 dengan default padding) */
-            height: calc(100vh - 64px);
-            /* Jika navbar Anda tinggi 56px (h-14), ganti jadi calc(100vh - 56px) */
+        /* Styling untuk Header dengan Gambar Latar Belakang Penuh dan Overlay */
+        .header-dominant {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Tinggi header sesuai gambar */
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            align-items: center; /* Konten di tengah vertikal */
+            text-align: left; /* Teks di header rata kiri */
+            color: white; /* Warna teks putih untuk header */
+            overflow: hidden;
         }
-        /* Style untuk transisi overlay (jika Alpine 3 belum berfungsi penuh untuk overlay) */
-        .overlay-transition {
-            transition: opacity 0.3s ease-out;
+        .header-dominant .overlay-dark {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.70) !important; /* Overlay hitam lebih gelap */
+            z-index: 1;
         }
-        .overlay-hidden {
-            opacity: 0;
+        .header-dominant .content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px; /* Lebar maksimal content-wrapper di header */
+            margin-left: 2rem; /* Jarak dari kiri seperti gambar */
+            margin-right: auto;
+            padding-left: 1rem; /* Padding internal */
+            padding-right: 1rem;
         }
-        .overlay-visible {
-            opacity: 1;
+        @media (min-width: 768px) { /* md breakpoint */
+            .header-dominant .content-wrapper {
+                margin-left: 4rem; /* Sesuaikan margin-left untuk layar lebih besar */
+            }
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .header-dominant .content-wrapper {
+                margin-left: 6rem; /* Sesuaikan margin-left untuk layar desktop */
+            }
+        }
+        .header-dominant h1 {
+            font-size: 2.5rem; /* text-4xl */
+            font-weight: bold;
+            line-height: 1.2;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            margin-bottom: 0.5rem;
+        }
+        .header-dominant .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem; /* Jarak antar item meta */
+            font-size: 0.875rem;
+            color: #e5e7eb; /* text-gray-200 */
+        }
+        .header-dominant .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .header-dominant .meta-info svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Styling untuk Konten Utama (Benar-benar Full Width) */
+        .main-content-area {
+            background-color: #ffffff; /* Latar belakang putih untuk konten */
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+            width: 100%; /* Lebar penuh */
+            /* Padding horizontal untuk seluruh area konten, agar tidak menempel tepi layar */
+            padding-left: 1rem;
+            padding-right: 1rem;
+            line-height: 1.625;
+            color: #374151; /* text-gray-800 */
+            text-align: justify;
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .main-content-area {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .main-content-area {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* Styling default untuk elemen HTML yang dihasilkan TinyMCE */
+        .main-content-area .prose {
+            max-width: none;
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0;
+        }
+        .main-content-area .prose img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .main-content-area .prose p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            font-size: 1.125rem;
+        }
+        .main-content-area .prose h1, .main-content-area .prose h2, .main-content-area .prose h3, .main-content-area .prose h4, .main-content-area .prose h5, .main-content-area .prose h6 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
         }
     </style>
+    @stack('styles') {{-- Ini tetap ada untuk style spesifik halaman --}}
 </head>
 
-<body class="bg-gray-100 font-poppins">
+{{-- MODIFIKASI BODY UNTUK STICKY FOOTER --}}
+<body class="bg-gray-100 font-poppins flex flex-col min-h-screen">
 
-    <div x-data="{ mobileMenuOpen: false }">
+    <div x-data="{ mobileMenuOpen: false }" class="flex-grow flex flex-col"> {{-- Wrapper untuk konten agar mengisi sisa ruang --}}
 
-        {{-- ==================== NAVBAR BARU YANG RESPONSIF ==================== --}}
+        {{-- ==================== NAVBAR ==================== --}}
         <nav class="bg-white shadow-md sticky top-0 z-50">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center py-4">
 
                     <div>
-                        <a href="/" class="flex items-center text-xl font-semibold text-gray-800">
-                            {{-- CATATAN: 'asset()' adalah helper Laravel. Jika ini hanya HTML biasa, ganti jadi 'images/logo.jpg' atau path relatif lainnya. --}}
+                        <a href="{{ route('beranda') }}" class="flex items-center text-xl font-semibold text-gray-800">
                             <img src="{{ asset('images/logo1.jpg') }}" alt="XploreJogja Logo" class="h-12 w-12 rounded-full object-cover">
                             <span class="ml-2">XploreJogja</span>
                         </a>
                     </div>
 
                     <div class="hidden lg:flex items-center space-x-8">
+<<<<<<< HEAD
                         <a href="/" class="text-lg text-gray-700 hover:text-blue-600">Beranda</a>
 
                         {{-- Galeri sekarang menjadi link biasa, dropdown dihilangkan --}}
@@ -57,6 +160,11 @@
 
                         <a href="/artikel" class="text-lg text-gray-700 hover:text-blue-600">Artikel</a> {{-- Destinasi -> Artikel --}}
                         {{-- Kuliner telah dihapus --}}
+=======
+                        <a href="{{ route('beranda') }}" class="text-lg text-gray-700 hover:text-blue-600">Home</a>
+                        <a href="{{ route('galeri.public') }}" class="text-lg text-gray-700 hover:text-blue-600">Galeri</a>
+                        <a href="{{ route('artikel.public') }}" class="text-lg text-gray-700 hover:text-blue-600">Artikel</a>
+>>>>>>> fb50eacff08773e771f965efede88043a8aae8f9
                     </div>
 
                     <div class="flex items-center">
@@ -76,7 +184,7 @@
                 </div>
             </div>
 
-            {{-- Overlay untuk Mobile Menu (Fade In/Out) --}}
+            {{-- Overlay untuk Mobile Menu --}}
             <div x-show="mobileMenuOpen"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0"
@@ -87,7 +195,7 @@
                  @click="mobileMenuOpen = false"
                  class="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"></div>
 
-            {{-- Mobile Menu (yang akan dianimasikan turun dari atas) --}}
+            {{-- Mobile Menu --}}
             <div x-show="mobileMenuOpen"
                  x-transition:enter="transition ease-out duration-300 transform"
                  x-transition:enter-start="-translate-y-full"
@@ -109,19 +217,52 @@
                     <input type="text" placeholder="Search..." class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 {{-- Item Navigasi Mobile --}}
+<<<<<<< HEAD
                 <a href="/" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Beranda</a>
                 <a href="#" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Galeri</a>
                 <a href="/artikel" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Artikel</a> {{-- Destinasi -> Artikel --}}
                 {{-- Kuliner telah dihapus --}}
+=======
+                <a href="{{ route('beranda') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Home</a>
+                <a href="{{ route('galeri.public') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Galeri</a>
+                <a href="{{ route('artikel.public') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-base text-gray-700 hover:bg-gray-100 transition-colors duration-200">Artikel</a>
+>>>>>>> fb50eacff08773e771f965efede88043a8aae8f9
             </div>
         </nav>
         {{-- ==================== AKHIR NAVBAR ==================== --}}
 
-        <main>
+        {{-- Konten utama aplikasi --}}
+        <main class="flex-grow"> {{-- TAMBAHKAN flex-grow DI SINI --}}
             @yield('content')
         </main>
 
+        {{-- ==================== FOOTER ==================== --}}
+        <footer class="bg-gray-800 text-white py-8 mt-auto"> {{-- TAMBAHKAN mt-auto DI SINI --}}
+            <div class="container mx-auto px-4 text-center text-sm">
+                &copy; {{ date('Y') }} XploreJogja. All rights reserved.
+            </div>
+        </footer>
+        {{-- ==================== AKHIR FOOTER ==================== --}}
+
     </div>
+
+    {{-- Lozad.js (lazy loading) --}}
+    <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    @stack('scripts')
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = lozad('.lozad', {
+                loaded: function(el) {
+                    el.classList.add('loaded');
+                    if(el.classList.contains('page-banner') && el.dataset.backgroundImage) {
+                        el.style.backgroundImage = `url('${el.dataset.backgroundImage}')`;
+                    }
+                }
+            });
+            observer.observe();
+        });
+    </script>
 
 </body>
 </html>
