@@ -7,8 +7,11 @@ use App\Models\KategoriGaleri;
 use App\Models\Galeri;
 use App\Models\KategoriArtikel;
 use App\Models\Artikel;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str; // Tambahkan ini jika Str::slug digunakan di metode lain yang di-uncomment
+use Illuminate\Support\Facades\Log; // Pastikan ini ada
+use Carbon\Carbon; // <--- DITAMBAHKAN untuk showDaerahDetail
+use Illuminate\Support\Facades\Storage; // <--- DITAMBAHKAN untuk uploadDaerahImage
+
 
 class PublicController extends Controller
 {
@@ -57,9 +60,9 @@ class PublicController extends Controller
         $kategori = KategoriGaleri::where('slug', $slug)->firstOrFail();
 
         $galeris = Galeri::where('kategori_galeri_id', $kategori->id)
-                           ->with('kategoriGaleri')
-                           ->orderBy('created_at', 'desc')
-                           ->get();
+                            ->with('kategoriGaleri')
+                            ->orderBy('created_at', 'desc')
+                            ->get();
 
         return view('galeri_by_category', compact('kategori', 'galeris'));
     }
@@ -72,8 +75,8 @@ class PublicController extends Controller
     {
         Log::info('PublicController@showGalleryPublic: Mengambil detail galeri dengan slug: ' . $slug);
         $galeri = Galeri::where('slug', $slug)
-                        ->with('kategoriGaleri')
-                        ->firstOrFail();
+                         ->with('kategoriGaleri')
+                         ->firstOrFail();
 
         try {
             $galeri->increment('view_count');
@@ -139,3 +142,4 @@ class PublicController extends Controller
      * URL: /artikel/daerah/{daerah_slug}
      */
 }
+

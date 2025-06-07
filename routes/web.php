@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; // Pastikan ini ada dan benar
 use App\Http\Controllers\GaleriController; // Impor GaleriController
 use App\Http\Controllers\ArtikelController; // Impor ArtikelController
-use App\Http\Controllers\PublicController; // <--- TAMBAHKAN BARIS INI
+use App\Http\Controllers\PublicController; // Pastikan ini ada
 
 
 /*
@@ -30,25 +30,31 @@ Route::get('/galeri/{slug}', [PublicController::class, 'showGalleryPublic'])->na
 
 // Halaman Artikel Publik (menampilkan KATEGORI ARTIKEL)
 // Hapus semua definisi rute '/artikel' atau name 'artikel.public' yang lain jika ada
-Route::get('/artikel', [PublicController::class, 'artikelIndex'])->name('artikel.public'); // <--- PASTIKAN INI ADALAH SATU-SATUNYA
+Route::get('/artikel', [PublicController::class, 'artikelIndex'])->name('artikel.public');
 
 // Halaman Daftar ARTIKEL per Kategori (Publik)
 Route::get('/artikel/kategori/{slug}', [PublicController::class, 'articlesByCategory'])->name('artikel.by.category.public');
 // Halaman Detail ARTIKEL Publik
 Route::get('/artikel/{slug}', [PublicController::class, 'showArticlePublic'])->name('artikel.show.public');
 
-// Route::get('/galeri', function () {
-//     // Jika Anda ingin menampilkan daftar galeri publik di sini, Anda bisa panggil controller
-//     // return (new GaleriController())->indexPublic(); // Contoh jika Anda punya method indexPublic
-//     return view('galeri'); // atau tetap tampilkan view statis
-// })->name('galeri.public'); // Beri nama yang jelas jika ini untuk publik
+// =========================================================================
+// RUTE UNTUK HALAMAN KABUPATEN/KOTA JOGJA
+// *** Telah diubah untuk menunjuk ke PublicController::class, 'showDaerahDetail' ***
+// =========================================================================
+Route::get('/sleman', [PublicController::class, 'showDaerahDetail'])->name('daerah.sleman');
+Route::get('/kulonprogo', [PublicController::class, 'showDaerahDetail'])->name('daerah.kulonprogo');
+Route::get('/bantul', [PublicController::class, 'showDaerahDetail'])->name('daerah.bantul');
+Route::get('/gunungkidul', [PublicController::class, 'showDaerahDetail'])->name('daerah.gunungkidul');
+Route::get('/kota-yogyakarta', [PublicController::class, 'showDaerahDetail'])->name('daerah.kotajogja'); // Gunakan hyphen (-) untuk URL
 
-// Route::get('/artikel', function () {
-//     // Jika Anda ingin menampilkan daftar artikel publik di sini
-//     // return (new ArtikelController())->indexPublic(); // Contoh
-//     return view('artikel'); // atau tetap tampilkan view statis
-// })->name('artikel.public'); // Beri nama yang jelas jika ini untuk publik
+// Opsi: Rute dinamis tunggal yang sebelumnya dikomentari, tetap dikomentari
+// Route::get('/daerah/{slug}', [DaerahController::class, 'show'])->name('daerah.detail');
 
+// Rute POST baru untuk upload gambar TinyMCE di konteks daerah
+Route::post('/daerah/tinymce-upload', [PublicController::class, 'uploadDaerahImage'])->name('daerah.tinymce.upload');
+
+
+// Rute tambahan lainnya
 Route::get('/geplak', function () {
     return view('geplak');
 })->name('geplak'); // Beri nama rute ini jika sering digunakan
@@ -85,11 +91,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('tambahartikel/tinymce-upload', [ArtikelController::class, 'uploadTinymceImage'])->name('tambahartikel.tinymce.upload');
 
     // HAPUS RUTE DUPLIKAT DAN SALAH SEPERTI DI BAWAH INI:
-    // Route::resource('/artikel', \App\Http\Controllers\GaleriController::class); // Ini duplikat
-    // Route::resource('/tambahartikel', \App\Http\Controllers\GaleriController::class); // Ini juga duplikat dan salah controller
+    // Route::resource('/artikel', \App\Http\Controllers\GaleriController::class);
+    // Route::resource('/tambahartikel', \App\Http\Controllers\GaleriController::class);
 });
 
 
 // Rute Autentikasi Breeze (Login, Register, Reset Password, dll.)
 require __DIR__.'/auth.php';
-
