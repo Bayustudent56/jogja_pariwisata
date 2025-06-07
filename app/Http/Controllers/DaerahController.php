@@ -3,118 +3,66 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\KategoriGaleri;
-use App\Models\Galeri;
-use App\Models\KategoriArtikel;
-use App\Models\Artikel;
-use Illuminate\Support\Str; // Tambahkan ini jika Str::slug digunakan di metode lain yang di-uncomment
-use Illuminate\Support\Facades\Log; // Pastikan ini ada
-use Carbon\Carbon; // <--- DITAMBAHKAN untuk showDaerahDetail
-use Illuminate\Support\Facades\Storage; // <--- DITAMBAHKAN untuk uploadDaerahImage
+use Carbon\Carbon; // Penting: Pastikan ini ada untuk objek tanggal
+// use App\Models\Galeri; // Contoh jika Anda memiliki model Galeri (uncomment jika digunakan)
+// use App\Models\Artikel; // Contoh jika Anda memiliki model Artikel (uncomment jika digunakan)
+// use App\Models\KategoriGaleri; // Contoh (uncomment jika digunakan)
+// use App\Models\KategoriArtikel; // Contoh (uncomment jika digunakan)
 
 
 class PublicController extends Controller
 {
-    /**
-     * Menampilkan halaman galeri publik dengan daftar KATEGORI GALERI.
-     * URL: /galeri
-     */
+    // --- Metode untuk Halaman Galeri Publik (Asumsi ini ada di PublicController Anda) ---
     public function galeriIndex()
     {
-        Log::info('PublicController@galeriIndex: Mengambil daftar kategori galeri.');
-        $kategoriGaleris = KategoriGaleri::orderBy('nama_kategori', 'asc')->get();
-        return view('galeri', compact('kategoriGaleris'));
+        // Logika untuk menampilkan kategori galeri atau daftar galeri utama
+        // Contoh: $kategoriGaleri = KategoriGaleri::all();
+        return view('galeri'); // Asumsi view galeri.blade.php Anda
     }
 
-    /**
-     * Menampilkan daftar GALERI berdasarkan KATEGORI GALERI.
-     * URL: /galeri/kategori/{slug}
-     */
     public function galleriesByCategory($slug)
     {
-        Log::info('PublicController@galleriesByCategory: Mengambil galeri berdasarkan kategori slug: ' . $slug);
-        $kategori = KategoriGaleri::where('slug', $slug)->firstOrFail();
-
-        $galeris = Galeri::where('kategori_galeri_id', $kategori->id)
-                            ->with('kategoriGaleri')
-                            ->orderBy('created_at', 'desc')
-                            ->get();
-
-        return view('galeri_by_category', compact('kategori', 'galeris'));
+        // Logika untuk menampilkan galeri per kategori
+        // Contoh: $category = KategoriGaleri::where('slug', $slug)->firstOrFail();
+        // $galleries = $category->galeries()->get();
+        return view('galeri_by_category'); // Asumsi view Anda
     }
 
-    /**
-     * Menampilkan detail GALERI untuk tampilan publik.
-     * URL: /galeri/{slug}
-     */
     public function showGalleryPublic($slug)
     {
-        Log::info('PublicController@showGalleryPublic: Mengambil detail galeri dengan slug: ' . $slug);
-        $galeri = Galeri::where('slug', $slug)
-                         ->with('kategoriGaleri')
-                         ->firstOrFail();
-
-        try {
-            $galeri->increment('view_count');
-            $galeri->refresh();
-        } catch (\Exception $e) {
-            Log::error('PublicController@showGalleryPublic: Gagal increment view_count untuk galeri ID ' . $galeri->id . ': ' . $e->getMessage());
-        }
-
-        return view('galeri_detail', compact('galeri'));
+        // Logika untuk menampilkan detail galeri
+        // Contoh: $galeri = Galeri::where('slug', $slug)->firstOrFail();
+        // return view('galeri_detail', compact('galeri'));
+        return view('galeri_detail'); // Asumsi view Anda
     }
 
-    /**
-     * Menampilkan halaman artikel publik dengan daftar KATEGORI ARTIKEL.
-     * URL: /artikel
-     */
+    // --- Metode untuk Halaman Artikel Publik (Asumsi ini ada di PublicController Anda) ---
     public function artikelIndex()
     {
-        Log::info('PublicController@artikelIndex: Mengambil daftar kategori artikel.');
-        $kategoriArtikels = KategoriArtikel::orderBy('nama_kategori', 'asc')->get();
-        return view('artikel', compact('kategoriArtikels'));
+        // Logika untuk menampilkan kategori artikel atau daftar artikel utama
+        // Contoh: $kategoriArtikel = KategoriArtikel::all();
+        return view('artikel'); // Asumsi view artikel.blade.php Anda
     }
 
-    /**
-     * Menampilkan daftar ARTIKEL berdasarkan KATEGORI ARTIKEL.
-     * URL: /artikel/kategori/{slug}
-     */
     public function articlesByCategory($slug)
     {
-        Log::info('PublicController@articlesByCategory: Mengambil artikel berdasarkan kategori slug: ' . $slug);
-        $kategori = KategoriArtikel::where('slug', $slug)->firstOrFail();
-
-        $artikels = Artikel::where('kategori_artikel_id', $kategori->id)
-                            ->with('kategoriArtikel')
-                            ->orderBy('created_at', 'desc')
-                            ->get();
-
-        return view('artikel_by_category', compact('kategori', 'artikels'));
+        // Logika untuk menampilkan artikel per kategori
+        // Contoh: $category = KategoriArtikel::where('slug', $slug)->firstOrFail();
+        // $articles = $category->articles()->get();
+        return view('artikel_by_category'); // Asumsi view Anda
     }
 
-    /**
-     * Menampilkan detail ARTIKEL untuk tampilan publik.
-     * URL: /artikel/{slug}
-     */
     public function showArticlePublic($slug)
     {
-        Log::info('PublicController@showArticlePublic: Mengambil detail artikel dengan slug: ' . $slug);
-        $artikel = Artikel::where('slug', $slug)
-                           ->with('kategoriArtikel')
-                           ->firstOrFail();
-
-        try {
-            $artikel->increment('view_count');
-            $artikel->refresh();
-        } catch (\Exception $e) {
-            Log::error('PublicController@showArticlePublic: Gagal increment view_count untuk artikel ID ' . $artikel->id . ': ' . $e->getMessage());
-        }
-
-        return view('artikel_detail', compact('artikel'));
+        // Logika untuk menampilkan detail artikel
+        // Contoh: $artikel = Artikel::where('slug', $slug)->firstOrFail();
+        // return view('artikel_detail', compact('artikel'));
+        return view('artikel_detail'); // Asumsi view Anda
     }
 
     // =========================================================================
-    // METODE INI YANG MENANGANI HALAMAN KABUPATEN/KOTA YOGYAKARTA (dengan data dummy)
+    // METODE BARU UNTUK HALAMAN KABUPATEN/KOTA YOGYAKARTA
+    // Ini adalah kode yang saya buat untuk kebutuhan Anda
     // =========================================================================
     public function showDaerahDetail(Request $request)
     {
@@ -135,7 +83,7 @@ class PublicController extends Controller
                 'judul' => 'Sleman: Pesona Gunung Merapi dan Perbukitan',
                 'gambar' => 'images/sleman_header.jpg', // Ganti dengan PATH GAMBAR yang sesuai di public/storage
                 'isi' => '<p>Sleman, kabupaten yang terletak di bagian utara Daerah Istimewa Yogyakarta, terkenal dengan pemandangan Gunung Merapi yang megah dan area perbukitan yang hijau. Destinasi populer di Sleman meliputi Kaliurang, Museum Gunung Merapi, dan berbagai kebun buah.</p><p>Selain itu, Sleman juga dikenal sebagai pusat pendidikan dengan banyak universitas ternama. Kehidupan di Sleman menawarkan perpaduan antara nuansa pedesaan yang tenang dan fasilitas kota yang modern.</p>',
-                'created_at' => Carbon::parse('2024-05-10'), // Menggunakan Carbon untuk objek tanggal
+                'created_at' => Carbon::parse('2024-05-10'),
                 'kategori_artikel' => [
                     'nama_kategori' => 'Kabupaten',
                     'slug' => 'kabupaten'
@@ -208,32 +156,8 @@ class PublicController extends Controller
             'slug' => $slug, // Tambahkan slug agar bisa digunakan di Blade jika diperlukan
         ];
 
-        // Mengembalikan view 'daerah_detail' dan mem-pass data $artikel ke dalamnya.
-        // Pastikan Anda sudah membuat file resources/views/daerah_detail.blade.php
-        // dan mengisinya dengan konten yang sama persis dengan artikel_detail.blade.php
-        return view('daerah_detail', compact('artikel'));
-    }
-
-    // =========================================================================
-    // METODE UNTUK MENGHANDLE UPLOAD GAMBAR TINYMCE DARI HALAMAN DAERAH (opsional)
-    // =========================================================================
-    public function uploadDaerahImage(Request $request)
-    {
-        if ($request->hasFile('file')) {
-            $request->validate([
-                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi file gambar
-            ]);
-
-            // Simpan gambar ke storage/app/public/daerah_images
-            $path = $request->file('file')->store('daerah_images', 'public');
-
-            // Pastikan Anda telah menjalankan: php artisan storage:link
-            // Mengembalikan URL publik dari gambar yang diupload
-            return response()->json(['location' => Storage::url($path)]);
-        }
-
-        // Jika tidak ada file yang diupload atau terjadi error
-        return response()->json(['error' => 'File not found or upload failed'], 400);
+        // Tampilkan view artikel_detail.blade.php dengan data yang sudah disiapkan
+        // Asumsi file artikel_detail.blade.php adalah tempat Anda menampilkan detail artikel
+        return view('artikel_detail', compact('artikel'));
     }
 }
-

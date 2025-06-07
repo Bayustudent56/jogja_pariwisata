@@ -46,21 +46,21 @@
             max-width: 1200px; /* Lebar maksimal content-wrapper di header */
             margin-left: 2rem; /* Jarak dari kiri seperti gambar */
             margin-right: auto;
-            padding-left: 1rem; /* Padding internal */
+            padding-left: 1rem;
             padding-right: 1rem;
         }
         @media (min-width: 768px) { /* md breakpoint */
             .header-dominant .content-wrapper {
-                margin-left: 4rem; /* Sesuaikan margin-left untuk layar lebih besar */
+                margin-left: 4rem;
             }
         }
         @media (min-width: 1024px) { /* lg breakpoint */
             .header-dominant .content-wrapper {
-                margin-left: 6rem; /* Sesuaikan margin-left untuk layar desktop */
+                margin-left: 6rem;
             }
         }
         .header-dominant h1 {
-            font-size: 2.5rem; /* text-4xl */
+            font-size: 2.5rem;
             font-weight: bold;
             line-height: 1.2;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
@@ -69,9 +69,9 @@
         .header-dominant .meta-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem; /* Jarak antar item meta */
+            gap: 1.5rem;
             font-size: 0.875rem;
-            color: #e5e7eb; /* text-gray-200 */
+            color: #e5e7eb;
         }
         .header-dominant .meta-info span {
             display: flex;
@@ -85,15 +85,14 @@
 
         /* Styling untuk Konten Utama (Benar-benar Full Width) */
         .main-content-area {
-            background-color: #ffffff; /* Latar belakang putih untuk konten */
+            background-color: #ffffff;
             padding-top: 2.5rem;
             padding-bottom: 2.5rem;
-            width: 100%; /* Lebar penuh */
-            /* Padding horizontal untuk seluruh area konten, agar tidak menempel tepi layar */
+            width: 100%;
             padding-left: 1rem;
             padding-right: 1rem;
             line-height: 1.625;
-            color: #374151; /* text-gray-800 */
+            color: #374151;
             text-align: justify;
         }
         @media (min-width: 640px) { /* sm breakpoint */
@@ -137,7 +136,7 @@
             line-height: 1.3;
         }
     </style>
-    @stack('styles') {{-- Ini tetap ada untuk style spesifik halaman --}}
+    @stack('styles')
 </head>
 
 {{-- MODIFIKASI BODY UNTUK STICKY FOOTER --}}
@@ -224,12 +223,12 @@
         {{-- ==================== AKHIR NAVBAR ==================== --}}
 
         {{-- Konten utama aplikasi --}}
-        <main class="flex-grow"> {{-- TAMBAHKAN flex-grow DI SINI --}}
+        <main class="flex-grow">
             @yield('content')
         </main>
 
         {{-- ==================== FOOTER ==================== --}}
-        <footer class="bg-gray-800 text-white py-8 mt-auto"> {{-- TAMBAHKAN mt-auto DI SINI --}}
+        <footer class="bg-gray-800 text-white py-8 mt-auto">
             <div class="container mx-auto px-4 text-center text-sm">
                 &copy; {{ date('Y') }} XploreJogja. All rights reserved.
             </div>
@@ -242,7 +241,6 @@
     <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
     
     {{-- Alpine.js CDN --}}
-    {{-- 'defer' memastikan script dimuat setelah HTML di-parse, '3.x.x' akan mendapatkan versi terbaru 3.x --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
     
     @stack('scripts')
