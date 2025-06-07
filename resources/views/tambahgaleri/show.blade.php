@@ -17,6 +17,7 @@
         display: flex;
         align-items: center;
     }
+    
     .hero-overlay-darker {
         position: absolute;
         top: 0;

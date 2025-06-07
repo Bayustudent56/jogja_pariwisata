@@ -216,6 +216,7 @@
 </div>
 @endsection
 
+
 @push('scripts')
 <script>
     async function downloadArticle(event) {

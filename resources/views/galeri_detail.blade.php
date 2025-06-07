@@ -23,6 +23,7 @@
         background-color: rgba(0, 0, 0, 0.70); /* Overlay hitam seperti gambar */
         z-index: 1;
     }
+    
     .header-dominant .content-wrapper {
         position: relative;
         z-index: 2;

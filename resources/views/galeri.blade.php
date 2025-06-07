@@ -101,6 +101,7 @@
             </ol>
         </nav>
 
+        
         <h2 class="text-3xl font-bold text-gray-800 mt-8 mb-6 text-center">Kategori Galeri</h2>
 
         @if($kategoriGaleris->isEmpty())

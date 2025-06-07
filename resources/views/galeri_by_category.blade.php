@@ -138,6 +138,7 @@
 
 @endsection
 
+
 @push('scripts')
 {{-- Lozad.js sudah dimuat di layouts/app.blade.php --}}
 {{-- Alpine.js sudah dimuat di layouts/app.blade.php --}}
