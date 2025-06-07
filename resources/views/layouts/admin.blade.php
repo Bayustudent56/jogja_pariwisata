@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
-<<<<<<< HEAD
 
-=======
->>>>>>> 586d232657e19fbce41a2a0d01ff1c8a31d5f630
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
