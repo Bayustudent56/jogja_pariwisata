@@ -92,7 +92,7 @@
                 </a>
             
                 {{-- Kartu 5: Kulon Progo --}}
-                <a href="/artikel/Kulon-Progo" class="block flex-none w-72">
+                <a href="/artikel/Kulon Progo" class="block flex-none w-72">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/kalibiru.jpg') }}" alt="Puncak Kalibiru, Kulon Progo" class="w-full h-48 object-cover">
                         <div class="p-4">
