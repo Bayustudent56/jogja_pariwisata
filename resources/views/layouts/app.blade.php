@@ -7,13 +7,19 @@
     <title>@yield('title', 'XploreJogja')</title>
 
     {{-- Tailwind CSS CDN --}}
+    {{-- Penting: Untuk produksi, sangat disarankan menggunakan Tailwind CLI atau Vite/Mix untuk performa dan ukuran file yang lebih kecil. --}}
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     
     {{-- Google Fonts: Poppins --}}
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    {{-- CSS Kustom Penuh untuk Halaman Publik (dipindahkan dari @push('styles')) --}}
+    {{-- CSS Kustom Penuh untuk Halaman Publik --}}
     <style>
+        /* Mengatur font Poppins sebagai default untuk seluruh body */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
         /* Styling untuk Header dengan Gambar Latar Belakang Penuh dan Overlay */
         .header-dominant {
             position: relative;
@@ -135,8 +141,9 @@
 </head>
 
 {{-- MODIFIKASI BODY UNTUK STICKY FOOTER --}}
-<body class="bg-gray-100 font-poppins flex flex-col min-h-screen">
+<body class="bg-gray-100 flex flex-col min-h-screen"> {{-- font-poppins sudah diatur di style global --}}
 
+    {{-- x-data="mobileMenuOpen: false" diletakkan di sini untuk mencakup seluruh komponen yang menggunakan mobileMenuOpen --}}
     <div x-data="{ mobileMenuOpen: false }" class="flex-grow flex flex-col"> {{-- Wrapper untuk konten agar mengisi sisa ruang --}}
 
         {{-- ==================== NAVBAR ==================== --}}
@@ -146,6 +153,7 @@
 
                     <div>
                         <a href="{{ route('beranda') }}" class="flex items-center text-xl font-semibold text-gray-800">
+                            {{-- Pastikan path gambar logo ini benar --}}
                             <img src="{{ asset('images/logo1.jpg') }}" alt="XploreJogja Logo" class="h-12 w-12 rounded-full object-cover">
                             <span class="ml-2">XploreJogja</span>
                         </a>
@@ -165,8 +173,9 @@
                         <div class="lg:hidden ml-4">
                             <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-800 focus:outline-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                                    <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                                    <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    {{-- Menggunakan x-bind:class untuk conditional show/hide icon --}}
+                                    <path x-bind:class="{ 'hidden': mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                    <path x-bind:class="{ 'hidden': !mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
                         </div>
@@ -231,6 +240,11 @@
 
     {{-- Lozad.js (lazy loading) --}}
     <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    
+    {{-- Alpine.js CDN --}}
+    {{-- 'defer' memastikan script dimuat setelah HTML di-parse, '3.x.x' akan mendapatkan versi terbaru 3.x --}}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
+    
     @stack('scripts')
 
     <script>
