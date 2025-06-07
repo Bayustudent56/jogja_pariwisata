@@ -13,8 +13,9 @@ use App\Http\Controllers\PublicController; // <--- TAMBAHKAN BARIS INI
 | Web Routes
 |--------------------------------------------------------------------------
 */
-
-// Rute untuk halaman depan (publik)
+// Rute untuk halaman depan (publik) - Menunjuk ke PublicController@berandaIndex
+// Route::get('/', [PublicController::class, 'berandaIndex'])->name('beranda');
+// // Rute untuk halaman depan (publik)
 Route::get('/', function () {
     return view('beranda');
 })->name('beranda');

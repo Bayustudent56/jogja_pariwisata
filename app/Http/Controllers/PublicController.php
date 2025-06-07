@@ -13,15 +13,35 @@ use Illuminate\Support\Facades\Log;
 class PublicController extends Controller
 {
     /**
+     * Menampilkan halaman beranda dengan data dinamis terbaru.
+     * URL: /
+     */
+    public function berandaIndex()
+    {
+        Log::info('PublicController@berandaIndex: Mengambil data untuk halaman beranda.');
+        
+        // Ambil 6 galeri terbaru untuk ditampilkan di beranda
+        $latestGaleris = Galeri::with('kategoriGaleri')
+                               ->orderBy('created_at', 'desc')
+                               ->limit(6) // Ambil 6 saja
+                               ->get();
+
+        // Ambil 4 artikel terbaru untuk ditampilkan di beranda
+        $latestArtikels = Artikel::with('kategoriArtikel')
+                                 ->orderBy('created_at', 'desc')
+                                 ->limit(4) // Ambil 4 saja
+                                 ->get();
+
+        // Kirim data ke view 'beranda'
+        return view('beranda', compact('latestGaleris', 'latestArtikels'));
+    }
+
+    /**
      * Menampilkan halaman galeri publik dengan daftar KATEGORI GALERI.
      * URL: /galeri
      */
     public function galeriIndex()
     {
-    // --- BARIS DEBUG INI ---
-        // dd('Controller galeriIndex dipanggil!', KategoriGaleri::orderBy('nama_kategori', 'asc')->get());
-                // --- HAPUS BARIS INI SETELAH SELESAI DEBUGGING ---
-
         Log::info('PublicController@galeriIndex: Mengambil daftar kategori galeri.');
         $kategoriGaleris = KategoriGaleri::orderBy('nama_kategori', 'asc')->get();
         return view('galeri', compact('kategoriGaleris'));
@@ -113,4 +133,9 @@ class PublicController extends Controller
 
         return view('artikel_detail', compact('artikel'));
     }
+
+    /**
+     * Menampilkan daftar ARTIKEL berdasarkan DAERAH.
+     * URL: /artikel/daerah/{daerah_slug}
+     */
 }

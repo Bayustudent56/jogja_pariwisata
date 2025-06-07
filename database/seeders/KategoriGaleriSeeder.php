@@ -18,10 +18,10 @@ class KategoriGaleriSeeder extends Seeder
         $kategorisData = [
             ['nama_kategori' => 'Alam', 'gambar' => 'images/alam.jpg'],
             ['nama_kategori' => 'Budaya & Sejarah', 'gambar' => 'images/budaya.jpg'],
-            ['nama_kategori' => 'Edukasi', 'gambar' => 'images/edukasi.jpg'],
-            ['nama_kategori' => 'Kreatif', 'gambar' => 'images/kreatif.jpg'],
-            ['nama_kategori' => 'Kuliner Tradisional', 'gambar' => 'images/kuliner-tradisional.jpg'],
-            ['nama_kategori' => 'Kuliner Kekinian', 'gambar' => 'images/kuliner-kekinian.jpg'],
+            ['nama_kategori' => 'Edukasi', 'gambar' => 'images/sonobudoyo2.jpg'],
+            ['nama_kategori' => 'Kreatif', 'gambar' => 'images/artpaper.jpg'],
+            ['nama_kategori' => 'Kuliner Tradisional', 'gambar' => 'images/gudeg.jpg'],
+            ['nama_kategori' => 'Kuliner Kekinian', 'gambar' => 'images/tempogelato.jpg'],
         ];
 
         foreach ($kategorisData as $data) {

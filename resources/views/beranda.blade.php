@@ -40,7 +40,7 @@
             <div class="flex space-x-6 overflow-x-auto pb-4 p-2">
 
                 {{-- Kartu 1: Sleman --}}
-                <a href="#" class="block flex-none w-72">
+                <a href="/artikel/SLEMAN" class="block flex-none w-72">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/merapi.jpg') }}" alt="Gunung Merapi, Sleman" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -53,7 +53,7 @@
                 </a>
     
                 {{-- Kartu 2: Kota Yogyakarta --}}
-                <a href="#" class="block flex-none w-72">
+                <a href="/artikel/Kota-Yogyakarta" class="block flex-none w-72">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/malbor.jpg') }}" alt="Malioboro, Kota Yogyakarta" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -66,7 +66,7 @@
                 </a>
     
                 {{-- Kartu 3: Gunungkidul --}}
-                <a href="#" class="block flex-none w-72">
+                <a href="/artikel/Gunungkidul" class="block flex-none w-72">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/klanyar.jpg') }}" alt="Pantai Indrayanti, Gunungkidul" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -79,7 +79,7 @@
                 </a>
     
                 {{-- Kartu 4: Bantul --}}
-                <a href="#" class="block flex-none w-72">
+                <a href="/artikel/Bantul" class="block flex-none w-72">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/parangtritis.jpg') }}" alt="Pantai Parangtritis, Bantul" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -92,7 +92,7 @@
                 </a>
     
                 {{-- Kartu 5: Kulon Progo --}}
-                <a href="#" class="block flex-none w-72">
+                <a href="/artikel/Kulon-Progo" class="block flex-none w-72">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/kalibiru.jpg') }}" alt="Puncak Kalibiru, Kulon Progo" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -122,12 +122,12 @@
 
         @php
             $galleryItemsJogja = [
-                ['title' => 'Gudeg Khas Yogyakarta', 'image_path' => 'images/gudeg.jpg', 'alt' => 'Gudeg, makanan khas Yogyakarta', 'link' => '#gudeg'],
-                ['title' => 'Sunset di Ratu Boko', 'image_path' => 'images/ratuboko.jpg', 'alt' => 'Candi Ratu Boko saat matahari terbenam', 'link' => '#ratuboko'],
-                ['title' => 'Megahnya Gunung Merapi', 'image_path' => 'images/merapi.jpg', 'alt' => 'Pemandangan Gunung Merapi dari kejauhan', 'link' => '#merapi'],
-                ['title' => 'Tenangnya Waduk Sermo', 'image_path' => 'images/sermo.jpeg', 'alt' => 'Waduk Sermo di Kulon Progo', 'link' => '#sermo'],
-                ['title' => 'Sejuknya Hutan Pinus', 'image_path' => 'images/pinusmangun.jpg', 'alt' => 'Hutan Pinus Mangunan', 'link' => '#pinus'],
-                ['title' => 'Sejarah di Vredeburg', 'image_path' => 'images/vredeburg.jpg', 'alt' => 'Museum Benteng Vredeburg di Yogyakarta', 'link' => '#vredeburg'],
+                ['title' => 'Gudeg Khas Yogyakarta', 'image_path' => 'images/gudeg.jpg', 'alt' => 'Gudeg, makanan khas Yogyakarta', 'link' => '/galeri/gudeg-khas-yogyakarta'],
+                ['title' => 'Sunset di Ratu Boko', 'image_path' => 'images/ratuboko.jpg', 'alt' => 'Candi Ratu Boko saat matahari terbenam', 'link' => '/galeri/sunset-di-ratu-boko'],
+                ['title' => 'Megahnya Gunung Merapi', 'image_path' => 'images/merapi.jpg', 'alt' => 'Pemandangan Gunung Merapi dari kejauhan', 'link' => '/galeri/merapi'],
+                ['title' => 'Tenangnya Waduk Sermo', 'image_path' => 'images/sermo.jpeg', 'alt' => 'Waduk Sermo di Kulon Progo', 'link' => '/galeri/sermo'],
+                ['title' => 'Sejuknya Hutan Pinus', 'image_path' => 'images/pinusmangun.jpg', 'alt' => 'Hutan Pinus Mangunan', 'link' => '/galeri/pinus'],
+                ['title' => 'Sejarah di Vredeburg', 'image_path' => 'images/vredeburg.jpg', 'alt' => 'Museum Benteng Vredeburg di Yogyakarta', 'link' => '/galeri/vredeburg'],
             ];
         @endphp
 
@@ -142,7 +142,6 @@
                     <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                     {{-- Title --}}
                     <div class="absolute bottom-0 left-0 p-5">
-                        {{-- PERUBAHAN WARNA HOVER TEKS DI SINI --}}
                         <h5 class="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-gray-300">
                             {{ $item['title'] }}
                         </h5>
@@ -153,90 +152,95 @@
         </div>
     </div>
 
-    {{-- BAGIAN 4: ARTIKEL --}}
-    <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/2">
-                            <img src="{{ asset('images/artikel2.jpg') }}" alt="Jelajah Kuliner Jateng & Jogja" class="w-full h-48 md:h-full object-cover">
-                        </div>
-                        <div class="p-4 md:p-6 md:w-1/2 flex flex-col">
-                            <p class="text-gray-500 text-xs mb-2 flex items-center">
-                               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                3 Juli 2023
-                            </p>
-                            <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">Jelajah Kuliner Jateng & Jogja</h3>
-                            <p class="text-gray-600 text-xs leading-relaxed">
-                                Jawa Tengah dan Yogyakarta terus mempesona tak hanya dengan destinasi wisata nan memukau, tapi kekayaan budaya kulinernya...
-                            </p>
-                        </div>
-                    </div>
-                </a>
+    {{-- BAGIAN 4: ARTIKEL (Layout Kartu DENGAN GAMBAR KECIL DI KIRI) --}}
+    <div class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            {{-- Header Artikel --}}
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">Artikel</h2>
+                    <p class="text-gray-500">Baca lebih lanjut tentang keindahan Yogyakarta.</p>
+                </div>
+                <a href="/artikel/" class="text-blue-600 font-semibold hover:underline whitespace-nowrap">Lihat Semua &rarr;</a>
+            </div>
 
-    
-                {{-- Artikel 2 --}}
-                <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/2">
-                            <img src="{{ asset('images/artikel2.jpg') }}" alt="Jelajah Kuliner Jateng & Jogja" class="w-full h-48 md:h-full object-cover">
+            @php
+                $articleItems = [
+                    [
+                        'date' => '6 Juli 2023',
+                        'title' => '10 Rekomendasi Wisata di Indonesia',
+                        'image_path' => 'images/artikel_sample1.jpg', // Placeholder for a new image, replace with your actual image
+                        'alt' => 'Pemandangan alam',
+                        'link' => '/artikel/jogja',
+                        'recommendations' => [
+                            'Candi Borobudur di Magelang',
+                            'Tanjung Kelayang di Belitung',
+                            'Mandalika di Nusa Tenggara Barat',
+                        ]
+                    ],
+                    [
+                        'date' => '6 Juli 2023',
+                        'title' => '10 Rekomendasi Wisata di Indonesia',
+                        'image_path' => 'images/artikel_sample2.jpg', // Placeholder for a new image, replace with your actual image
+                        'alt' => 'Pemandangan kota',
+                        'link' => '/artikel/sleman',
+                        'recommendations' => [
+                            'Candi Borobudur di Magelang',
+                            'Tanjung Kelayang di Belitung',
+                            'Mandalika di Nusa Tenggara Barat',
+                        ]
+                    ],
+                    [
+                        'date' => '6 Juli 2023',
+                        'title' => '10 Rekomendasi Wisata di Indonesia',
+                        'image_path' => 'images/tugujogja.jpg', // Placeholder for a new image, replace with your actual image
+                        'alt' => 'Pemandangan pantai',
+                        'link' => '/artikel/jogja',
+                        'recommendations' => [
+                            'Candi Borobudur di Magelang',
+                            'Tanjung Kelayang di Belitung',
+                            'Mandalika di Nusa Tenggara Barat',
+                        ]
+                    ],
+                    [
+                        'date' => '6 Juli 2023',
+                        'title' => '10 Rekomendasi Wisata di Indonesia',
+                        'image_path' => 'images/artikel_sample4.jpg', // Placeholder for a new image, replace with your actual image
+                        'alt' => 'Pemandangan gunung',
+                        'link' => '/artikel/jogja',
+                        'recommendations' => [
+                            'Candi Borobudur di Magelang',
+                            'Tanjung Kelayang di Belitung',
+                            'Mandalika di Nusa Tenggara Barat',
+                        ]
+                    ],
+                ];
+            @endphp
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                @foreach($articleItems as $article)
+                <a href="{{ $article['link'] }}" class="group block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
+                    <div class="flex items-center"> {{-- Menggunakan flex untuk tata letak gambar dan teks berdampingan --}}
+                        <div class="flex-none w-40 h-40 overflow-hidden rounded-l-xl"> {{-- Ukuran gambar tetap dan rounded di kiri --}}
+                            <img src="{{ asset($article['image_path']) }}" alt="{{ $article['alt'] }}" class="w-full h-full object-cover">
                         </div>
-                        <div class="p-4 md:p-6 md:w-1/2 flex flex-col">
+                        <div class="p-4 flex-grow"> {{-- Konten teks mengambil sisa ruang --}}
                             <p class="text-gray-500 text-xs mb-2 flex items-center">
-                               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                3 Juli 2023
+                                {{ $article['date'] }}
                             </p>
-                            <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">Jelajah Kuliner Jateng & Jogja</h3>
-                            <p class="text-gray-600 text-xs leading-relaxed">
-                                Jawa Tengah dan Yogyakarta terus mempesona tak hanya dengan destinasi wisata nan memukau, tapi kekayaan budaya kulinernya...
-                            </p>
+                            <h3 class="font-semibold text-gray-800 mb-2 text-base">{{ $article['title'] }}</h3>
+                            <ul class="text-gray-600 text-xs list-disc pl-4 space-y-0.5">
+                                @foreach($article['recommendations'] as $recommendation)
+                                    <li>{{ $recommendation }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </a>
-    
-                {{-- Artikel 3 --}}
-                <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/2">
-                            <img src="{{ asset('images/artikel3.jpg') }}" alt="Pakaian Adat: Arti, Contoh, dan Fungsinya" class="w-full h-48 md:h-full object-cover object-top">
-                        </div>
-                        <div class="p-4 md:p-6 md:w-1/2 flex flex-col">
-                            <p class="text-gray-500 text-xs mb-2 flex items-center">
-                               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                25 Juni 2023
-                            </p>
-                            <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">Pakaian Adat: Arti, Contoh, dan Fungsinya</h3>
-                            <p class="text-gray-600 text-xs leading-relaxed">
-                                Pakaian Adat digunakan untuk menampilkan perayaan upacara, menunjukkan status maupun membedakan peran.
-                            </p>
-                        </div>
-                    </div>
-                </a>
-    
-                {{-- Artikel 4 --}}
-                <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="md:w-1/2">
-                            <img src="{{ asset('images/artikel4.jpg') }}" alt="Filosofi Tari Pendet Berdasarkan Sejarah Budaya Bali" class="w-full h-48 md:h-full object-cover object-center">
-                        </div>
-                        <div class="p-4 md:p-6 md:w-1/2 flex flex-col">
-                            <p class="text-gray-500 text-xs mb-2 flex items-center">
-                               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                8 Juni 2023
-                            </p>
-                            <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">Filosofi Tari Pendet Berdasarkan Sejarah</h3>
-                            <p class="text-gray-600 text-xs leading-relaxed">
-                                Tarian ini sering muncul untuk menyambut tamu-tamu penting para dewa-dewi. Tari pendet merupakan perwujudan rasa syukur.
-                            </p>
-                        </div>
-                    </div>
-                </a>
+                @endforeach
             </div>
         </div>
     </div>
