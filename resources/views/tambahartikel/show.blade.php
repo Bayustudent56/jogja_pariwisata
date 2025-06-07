@@ -2,6 +2,7 @@
 
 @section('title', $artikel->judul)
 
+
 @push('styles')
 <style>
     /* Styling Anda yang sudah ada */
@@ -128,7 +129,7 @@
     </div>
     @else
     {{-- Fallback jika tidak ada gambar utama --}}
-    
+
     <div class="bg-gray-800 text-white py-12">
         <div class="hero-content-container container mx-auto px-4 sm:px-6 lg:px-8">
             <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-left">

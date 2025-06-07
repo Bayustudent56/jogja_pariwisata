@@ -2,6 +2,7 @@
 
 @section('title', isset($galeri) ? 'Edit Galeri: ' . $galeri->judul : 'Tambah Galeri Baru')
 
+
 @push('styles')
 
     {{-- PASTIKAN INI ADA DAN API KEY SUDAH DIGANTI! Ini krusial untuk TinyMCE --}}

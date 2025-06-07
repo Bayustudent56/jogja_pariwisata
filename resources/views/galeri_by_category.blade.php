@@ -2,6 +2,7 @@
 
 @section('title', 'Galeri Kategori: ' . $kategori->nama_kategori)
 
+
 @push('styles')
 <style>
     /* Styling hero section dan card galeri */

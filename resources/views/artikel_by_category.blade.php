@@ -2,6 +2,7 @@
 
 @section('title', 'Artikel Kategori: ' . $kategori->nama_kategori)
 
+
 @push('styles')
 <style>
     /* Styling hero section dan card artikel (disalin dari galeri_by_category.blade.php) */
@@ -134,7 +135,7 @@
             </div>
         @endif
     </div>
-    
+
 
 @endsection
 

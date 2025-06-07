@@ -87,6 +87,7 @@
         </div>
     </div>
 
+    
     {{-- Breadcrumbs and Category Grid --}}
     <div class="container mx-auto px-4 mt-10 mb-6">
         <nav aria-label="Breadcrumb">
@@ -104,7 +105,7 @@
             </ol>
         </nav>
 
-        
+
         <h2 class="text-3xl font-bold text-gray-800 mt-8 mb-6 text-center">Kategori Artikel</h2>
 
         @if($kategoriArtikels->isEmpty())

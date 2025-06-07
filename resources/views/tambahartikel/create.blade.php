@@ -2,6 +2,7 @@
 
 @section('title', isset($artikel) ? 'Edit Artikel: ' . $artikel->judul : 'Tambah Artikel Baru')
 
+
 @push('styles')
     {{-- TinyMCE CDN - PASTIKAN INI TIDAK DIKOMENTARI DAN API KEY VALID --}}
     {{-- <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
@@ -15,7 +16,7 @@
     <h2 class="text-2xl font-bold mb-6 text-gray-700">
         {{ isset($artikel) ? 'Edit Artikel' : 'Tambah Artikel Baru' }}
     </h2>
-    
+
 
     @if ($errors->any())
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">

@@ -2,6 +2,7 @@
 
 @section('title', $artikel->judul)
 
+
 @push('styles')
 <style>
     /* Styling untuk Header dengan Gambar Latar Belakang Penuh dan Overlay */

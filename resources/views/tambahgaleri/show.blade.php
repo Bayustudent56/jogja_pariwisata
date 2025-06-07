@@ -2,6 +2,7 @@
 
 @section('title', $galeri->judul)
 
+
 @push('styles')
 <style>
     /* Styling umum untuk hero section dan konten (disalin dari show.blade.php artikel) */
@@ -17,7 +18,7 @@
         display: flex;
         align-items: center;
     }
-    
+
     .hero-overlay-darker {
         position: absolute;
         top: 0;
