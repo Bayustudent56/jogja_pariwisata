@@ -66,7 +66,7 @@
 @section('content')
     {{-- Hero Section untuk Kategori Artikel --}}
     <div class="relative h-72 md:h-96 lozad page-banner"
-         data-background-image="{{ asset('images/artikel-kategori-banner.jpg') }}"> {{-- Gambar banner khusus kategori --}}
+         data-background-image="{{ asset('storage/artikel-kategori-banner.jpg') }}"> {{-- Gambar banner khusus kategori --}}
         <div class="hero-overlay-darker"></div>
         <div class="container mx-auto px-4 h-full flex items-center justify-center text-center">
             <h1 class="text-3xl md:text-5xl font-extrabold text-white relative z-10 leading-tight text-shadow-strong">
