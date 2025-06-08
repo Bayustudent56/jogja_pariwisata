@@ -92,7 +92,7 @@
                 </a>
             
                 {{-- Kartu 5: Kulon Progo --}}
-                <a href="/artikel/Kulon Progo" class="block flex-none w-72">
+                <a href="/artikel/Kulon-Progo" class="block flex-none w-72">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 h-full transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:shadow-inner active:scale-[0.98]">
                         <img src="{{ asset('images/kalibiru.jpg') }}" alt="Puncak Kalibiru, Kulon Progo" class="w-full h-48 object-cover">
                         <div class="p-4">
@@ -167,51 +167,45 @@
             @php
                 $articleItems = [
                     [
-                        'date' => '6 Juli 2023',
-                        'title' => '10 Rekomendasi Wisata di Indonesia',
-                        'image_path' => 'images/artikel_sample1.jpg', // Placeholder for a new image, replace with your actual image
+                        'date' => '6 Juni 2025',
+                        'title' => 'Kebun Buah Mangunan: Menikmati Keindahan Alam dari Ketinggian dengan Panorama Spektakuler',
+                        'image_path' => 'images/vredeburg.jpg', // Placeholder for a new image, replace with your actual image
                         'alt' => 'Pemandangan alam',
-                        'link' => '/artikel/jogja',
+                        'link' => '/artikel/kebun-buah-mangunan-menikmati-keindahan-alam-dari-ketinggian-dengan-panorama-spektakuler',
                         'recommendations' => [
-                            'Candi Borobudur di Magelang',
-                            'Tanjung Kelayang di Belitung',
-                            'Mandalika di Nusa Tenggara Barat',
+                            'Menambah daftar panjang pesona alam di kawasan Dlingo, Bantul, Kebun Buah Mangunan menawarkan perspektif keindahan yang berbeda. Terletak tak jauh dari ikonik Hutan Pinus Mangunan, destinasi ini memanjakan mata dengan panorama alam perbukitan yang memukau dari ketinggian, menjadikannya lokasi ideal untuk menikmati keagungan alam Yogyakarta, terutama saat-saat matahari terbit atau terbenam.',
                         ]
                     ],
                     [
-                        'date' => '6 Juli 2023',
-                        'title' => '10 Rekomendasi Wisata di Indonesia',
-                        'image_path' => 'images/artikel_sample2.jpg', // Placeholder for a new image, replace with your actual image
+                        'date' => '6 Juni 2025',
+                        'title' => 'Keraton Jogjakarta',
+                        'image_path' => 'images/kraton.jpg', // Placeholder for a new image, replace with your actual image
                         'alt' => 'Pemandangan kota',
                         'link' => '/artikel/sleman',
                         'recommendations' => [
-                            'Candi Borobudur di Magelang',
-                            'Tanjung Kelayang di Belitung',
-                            'Mandalika di Nusa Tenggara Barat',
+                            'Malioboro Jogja',
                         ]
                     ],
                     [
-                        'date' => '6 Juli 2023',
-                        'title' => '10 Rekomendasi Wisata di Indonesia',
+                        'date' => '6 Juni 2025',
+                        'title' => 'Tugu Jogja',
                         'image_path' => 'images/tugujogja.jpg', // Placeholder for a new image, replace with your actual image
                         'alt' => 'Pemandangan pantai',
                         'link' => '/artikel/jogja',
                         'recommendations' => [
-                            'Candi Borobudur di Magelang',
-                            'Tanjung Kelayang di Belitung',
-                            'Mandalika di Nusa Tenggara Barat',
+                            'Tugu Jogja',
                         ]
                     ],
                     [
-                        'date' => '6 Juli 2023',
-                        'title' => '10 Rekomendasi Wisata di Indonesia',
-                        'image_path' => 'images/artikel_sample4.jpg', // Placeholder for a new image, replace with your actual image
+                        'date' => '6 Juni 2025',
+                        'title' => '10 Rekomendasi Wisata di Jogja',
+                        'image_path' => 'images/panguk_kadiwung.jpg', // Placeholder for a new image, replace with your actual image
                         'alt' => 'Pemandangan gunung',
-                        'link' => '/artikel/jogja',
+                        'link' => '/artikel/panguk-kadiwung',
                         'recommendations' => [
-                            'Candi Borobudur di Magelang',
-                            'Tanjung Kelayang di Belitung',
-                            'Mandalika di Nusa Tenggara Barat',
+                            'Panguk Kadiwung',
+                            'Malioboro',
+                            'Museum Soeharto',
                         ]
                     ],
                 ];
@@ -245,67 +239,7 @@
             <a href="#" class="text-blue-600 font-semibold hover:underline whitespace-nowrap">Lihat Semua &rarr;</a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {{-- Artikel 1 --}}
-            <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
-                <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/2">
-                        <img src="{{ asset('images/artikel1.jpg') }}" alt="Saka Duwur: Filosofi Budaya Jawa" class="w-full h-48 md:h-full object-cover">
-                    </div>
-                    <div class="p-4 md:p-6 md:w-1/2 flex flex-col">
-                        <p class="text-gray-500 text-xs mb-2 flex items-center">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                           </svg>
-                           7 Juni 2023
-                        </p>
-                        <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">Saka Duwur: Filosofi Budaya Jawa</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">
-                            Saka Duwur merupakan falsafah hidup masyarakat Jawa yang memiliki makna cukup mendalam.
-                        </p>
-                    </div>
-                </div>
-            </a>
-            {{-- Artikel 2 --}}
-            <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
-                <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/2">
-                        <img src="{{ asset('images/artikel2.jpg') }}" alt="Jelajah Kuliner Jateng & Jogja" class="w-full h-48 md:h-full object-cover">
-                    </div>
-                    <div class="p-4 md:p-6 md:w-1/2 flex flex-col">
-                        <p class="text-gray-500 text-xs mb-2 flex items-center">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                           </svg>
-                           3 Juli 2023
-                        </p>
-                        <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">Jelajah Kuliner Jateng & Jogja</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">
-                            Jawa Tengah dan Yogyakarta terus mempesona tak hanya dengan destinasi wisata nan memukau, tapi kekayaan budaya kulinernya...
-                        </p>
-                    </div>
-                </div>
-            </a>
-            {{-- Artikel 3 --}}
-            <a href="#" class="block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:shadow-xl active:shadow-inner active:scale-[0.99]">
-                <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/2">
-                        <img src="{{ asset('images/artikel3.jpg') }}" alt="Pakaian Adat: Arti, Contoh, dan Fungsinya" class="w-full h-48 md:h-full object-cover object-top">
-                    </div>
-                    <div class="p-4 md:p-6 md:w-1/2 flex flex-col">
-                        <p class="text-gray-500 text-xs mb-2 flex items-center">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                           </svg>
-                           25 Juni 2023
-                        </p>
-                        <h3 class="font-semibold text-gray-800 mb-2 text-sm md:text-base">Pakaian Adat: Arti, Contoh, dan Fungsinya</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">
-                            Pakaian Adat digunakan untuk menampilkan perayaan upacara, menunjukkan status maupun membedakan peran.
-                        </p>
-                    </div>
-                </div>
-            </a>
+
         </div>
     </div>
 @endsection
