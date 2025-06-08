@@ -169,11 +169,11 @@
                     [
                         'date' => '6 Juni 2025',
                         'title' => 'Kebun Buah Mangunan: Menikmati Keindahan Alam dari Ketinggian dengan Panorama Spektakuler',
-                        'image_path' => 'images/vredeburg.jpg', // Placeholder for a new image, replace with your actual image
+                        'image_path' => 'images/mangunan.jpg', // Placeholder for a new image, replace with your actual image
                         'alt' => 'Pemandangan alam',
                         'link' => '/artikel/kebun-buah-mangunan-menikmati-keindahan-alam-dari-ketinggian-dengan-panorama-spektakuler',
                         'recommendations' => [
-                            'Menambah daftar panjang pesona alam di kawasan Dlingo, Bantul, Kebun Buah Mangunan menawarkan perspektif keindahan yang berbeda. Terletak tak jauh dari ikonik Hutan Pinus Mangunan, destinasi ini memanjakan mata dengan panorama alam perbukitan yang memukau dari ketinggian, menjadikannya lokasi ideal untuk menikmati keagungan alam Yogyakarta, terutama saat-saat matahari terbit atau terbenam.',
+                            'Menambah daftar panjang pesona alam di kawasan Dlingo, Bantul, Kebun Buah Mangunan menawarkan perspektif keindahan yang berbeda. Terletak tak jauh dari ikonik Hutan Pinus Mangunan, destinasi ini memanjakan ...',
                         ]
                     ],
                     [
@@ -183,7 +183,7 @@
                         'alt' => 'Pemandangan kota',
                         'link' => '/artikel/sleman',
                         'recommendations' => [
-                            'Malioboro Jogja',
+                            'Keraton ini didirikan oleh Sri Sultan Hamengkubuwana I pada tahun 1755 sebagai Istana/Keraton Yogyakarta yang baru berdiri akibat perpecahan Mataram Islam ...',
                         ]
                     ],
                     [
@@ -193,7 +193,7 @@
                         'alt' => 'Pemandangan pantai',
                         'link' => '/artikel/jogja',
                         'recommendations' => [
-                            'Tugu Jogja',
+                            'Tugu Jogja adalah sebuah tugu atau monumen yang sering dipakai sebagai simbol atau lambang dari Kota Yogyakarta, Daerah Istimewa Yogyakarta.',
                         ]
                     ],
                     [
